@@ -70,7 +70,7 @@ subprojects { Project project ->
 		}
 		title = "Crayon CMS"
 		desc = "A minimalistic CMS for the Java platform based on Grails framework"
-		developers = [johndoe:"Gogula Rajaprabhu"]
+		developers = [rgogulakrishnan:"Gogula Rajaprabhu"]
 	}
 
 	assets {
