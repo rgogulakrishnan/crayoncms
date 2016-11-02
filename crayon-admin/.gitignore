@@ -3,7 +3,6 @@ build/
 .settings
 .classpath
 .project
-.idea
 
 # Ignore Gradle GUI config
 gradle-app.setting

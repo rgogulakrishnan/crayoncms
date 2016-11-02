@@ -1,0 +1,3 @@
+rootProject.name="crayoncms"
+
+include "crayon-page", "crayon-block", "crayon-user", "crayon-menu", "crayon-layout", "crayon-admin"

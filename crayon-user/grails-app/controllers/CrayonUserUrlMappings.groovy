@@ -1,0 +1,6 @@
+class CrayonUserUrlMappings {
+
+    static mappings = {
+       
+    }
+}
