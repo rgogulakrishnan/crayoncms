@@ -65,6 +65,7 @@ subprojects { Project project ->
 		user = bintrayUser
 		key = bintrayApiKey
 		githubSlug = 'crayoncms/crayoncms'
+		//userOrg = 'crayoncms'
 		license {
 			name = 'MIT'
 		}
