@@ -10,7 +10,7 @@
         	<g:message code="default.lists.label" args="[entityName]" /></h1>
         </content>
         <content tag="right-menu">
-            <sec:link class="btn btn-primary" action="create" expression="hasRole('ROLE_CRAYONCMS_LAYOUT_CREATE')">
+            <sec:link class="btn btn-primary" action="create" expression="hasRole('ROLE_CRAYONCMS_LAYOUT_MANAGE')">
         	    <i class="fa fa-file-text"></i>
         	    <span class="hidden-xs"><g:message code="default.new.label" args="[entityName]" /></span>
         	</sec:link>
@@ -19,7 +19,7 @@
         <div id="list-layout" class="content scaffold-list" role="main">
 
             <crayoncms:table collection="${layoutList}" properties="['name', 'slug', 'dateCreated', 'lastUpdated']"
-                deleteRole="ROLE_CRAYONCMS_LAYOUT_DELETE" />
+                deleteRole="ROLE_CRAYONCMS_LAYOUT_MANAGE" />
 
 			<g:if test="${layoutCount > 20 }">
             	<div class="pagination">

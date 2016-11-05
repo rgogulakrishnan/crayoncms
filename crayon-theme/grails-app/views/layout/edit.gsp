@@ -8,10 +8,10 @@
     <body>
     	
         <content tag="header">
-            <sec:ifAllGranted roles="ROLE_CRAYONCMS_LAYOUT_EDIT">
+            <sec:ifAllGranted roles="ROLE_CRAYONCMS_LAYOUT_MANAGE">
                 <g:message code="default.edit.label" args="[entityName]" />
             </sec:ifAllGranted>
-            <sec:ifNotGranted roles="ROLE_CRAYONCMS_LAYOUT_EDIT">
+            <sec:ifNotGranted roles="ROLE_CRAYONCMS_LAYOUT_MANAGE">
                 <g:message code="default.view.label" args="[entityName]" />
             </sec:ifNotGranted>
         </content>

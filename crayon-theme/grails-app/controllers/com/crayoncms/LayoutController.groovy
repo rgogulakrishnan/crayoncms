@@ -15,17 +15,12 @@ class LayoutController {
         respond Layout.list(params), model:[layoutCount: Layout.count()]
     }
 
-    @Secured("ROLE_CRAYONCMS_LAYOUT_VIEW")
-    def show(Layout layout) {
-        respond layout
-    }
-
-    @Secured("ROLE_CRAYONCMS_LAYOUT_CREATE")
+    @Secured("ROLE_CRAYONCMS_LAYOUT_MANAGE")
     def create() {
         respond new Layout(params)
     }
 
-    @Secured("ROLE_CRAYONCMS_LAYOUT_CREATE")
+    @Secured("ROLE_CRAYONCMS_LAYOUT_MANAGE")
     @Transactional
     def save(Layout layout) {
         if (layout == null) {
@@ -52,12 +47,12 @@ class LayoutController {
         }
     }
 
-    @Secured("ROLE_CRAYONCMS_LAYOUT_EDIT")
+    @Secured("ROLE_CRAYONCMS_LAYOUT_MANAGE")
     def edit(Layout layout) {
         respond layout
     }
 
-    @Secured("ROLE_CRAYONCMS_LAYOUT_EDIT")
+    @Secured("ROLE_CRAYONCMS_LAYOUT_MANAGE")
     @Transactional
     def update(Layout layout) {
         if (layout == null) {
@@ -84,7 +79,7 @@ class LayoutController {
         }
     }
 
-    @Secured("ROLE_CRAYONCMS_LAYOUT_DELETE")
+    @Secured("ROLE_CRAYONCMS_LAYOUT_MANAGE")
     @Transactional
     def delete(Layout layout) {
 

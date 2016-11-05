@@ -1,8 +1,8 @@
-package crayon.layout
+package com.crayoncms
 
 import grails.plugins.*
 
-class CrayonLayoutGrailsPlugin extends Plugin {
+class CrayonThemeGrailsPlugin extends Plugin {
 
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "3.2.1 > *"
@@ -12,24 +12,24 @@ class CrayonLayoutGrailsPlugin extends Plugin {
     ]
 
     // TODO Fill in these fields
-    def title = "Layouts" // Headline display name of the plugin
+    def title = "Themes" // Headline display name of the plugin
     def author = "Gogula Rajaprabhu"
     def authorEmail = "rgogulakrishnan@gmail.com"
     def description = '''\
-Manage site layouts.
+Manage site themes.
 '''
     def profiles = ['web']
 
     // URL to the plugin's documentation
-    def documentation = "http://grails.org/plugin/crayon-layout"
+    def documentation = "http://grails.org/plugin/crayon-theme"
 
     // Extra (optional) plugin metadata
     def crayonMeta = [
             addonType: "plugin",
-            roles: ["ROLE_CRAYONCMS_LAYOUT_CREATE": "Create a layout",
-                    "ROLE_CRAYONCMS_LAYOUT_EDIT": "Edit layout",
+            roles: ["ROLE_CRAYONCMS_LAYOUT_MANAGE": "Manage layouts",
                     "ROLE_CRAYONCMS_LAYOUT_VIEW": "View layouts",
-                    "ROLE_CRAYONCMS_LAYOUT_DELETE": "Delete layout"]
+                    "ROLE_CRAYONCMS_TEMPLATE_MANAGE": "Manage templates",
+                    "ROLE_CRAYONCMS_TEMPLATE_VIEW": "View templates"]
     ]
 
     // License: one of 'APACHE', 'GPL2', 'GPL3'

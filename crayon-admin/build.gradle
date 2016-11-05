@@ -3,5 +3,5 @@ dependencies {
 			project(":crayon-block"),
 			project(":crayon-menu"),
 			project(":crayon-user"),
-			project(":crayon-layout")
+			project(":crayon-theme")
 }
