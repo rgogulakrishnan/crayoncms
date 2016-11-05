@@ -2,7 +2,7 @@
 grails:
     profile: web-plugin
     codegen:
-        defaultPackage: com.crayoncms
+        defaultPackage: com.crayoncms.user
     spring:
         transactionManagement:
             proxies: false

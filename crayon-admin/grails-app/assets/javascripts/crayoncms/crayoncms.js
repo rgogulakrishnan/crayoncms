@@ -12,6 +12,7 @@
 //= require crayoncms/codemirror-xml-5.20.0
 //= require crayoncms/summernote.min
 //= require crayoncms/jquery.mjs.nestedSortable
+//= require crayoncms/jquery.ui.touch-punch-0.2.3.min
 //= require_tree .
 //= require_self
 
