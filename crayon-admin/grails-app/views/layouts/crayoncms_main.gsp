@@ -4,10 +4,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>
-        <g:layoutTitle default="Crayon CMS"/>
+        <g:layoutTitle default="CrayonCMS"/>
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<link href="https://fonts.googleapis.com/css?family=Grand+Hotel|Raleway|Open+Sans" rel="stylesheet">
+	<asset:link rel="shortcut icon" href="crayoncms/favicon.ico" type="image/x-icon"/>
+	<link href="https://fonts.googleapis.com/css?family=Raleway|Open+Sans" rel="stylesheet">
     <asset:stylesheet src="crayoncms/crayoncms.css"/>
 
     <g:layoutHead/>
@@ -23,7 +24,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <g:link class="navbar-brand logo" controller="dashboard">Crayon</g:link>
+                <g:link class="navbar-brand logo" controller="dashboard"><asset:image src="crayoncms/logo.png" /></g:link>
             </div>
             <div class="navbar-collapse collapse" aria-expanded="false">
                 <ul class="nav navbar-nav">
