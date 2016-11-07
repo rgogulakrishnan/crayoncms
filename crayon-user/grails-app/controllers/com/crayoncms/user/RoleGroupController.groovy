@@ -4,7 +4,7 @@ import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
 
-@Secured("ROLE_MANAGE_USERS")
+@Secured("ROLE_CRAYONCMS_USER_MANAGE_ROLEGROUPS")
 @Transactional(readOnly = true)
 class RoleGroupController {
 

@@ -1,3 +1,4 @@
+<%@ page import="com.crayoncms.admin.enums.SettingType" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,17 +18,20 @@
             <g:each var="setting" in="${settingList}">
                 <div class="form-group">
                     <label for="${setting.name}">${setting.name}</label>
-                    <g:if test="${setting.type == 'text'}">
+                    <g:if test="${setting.type == SettingType.TEXT}">
                         <g:textField class="form-control" name="${setting.name}" value="${setting.value}" />
                     </g:if>
-                    <g:if test="${setting.type == 'textarea'}">
+                    <g:if test="${setting.type == SettingType.TEXT_AREA}">
                         <g:textArea class="form-control" name="${setting.name}" value="${setting.value}" rows="5" />
                     </g:if>
-                    <g:if test="${setting.type == 'radio'}">
+                    <g:if test="${setting.type == SettingType.RADIO}">
                         <g:radioGroup class="form-control" name="${setting.name}"
                             labels="${Eval.me(setting.options)}" values="${Eval.me(setting.options)}" value="${setting.value}" >
                             <div>${it.label} ${it.radio}</div>
                         </g:radioGroup>
+                    </g:if>
+                    <g:if test="${setting.type == SettingType.TIME_ZONE_SELECT}">
+                        <g:timeZoneSelect name="${setting.name}" value="${java.util.TimeZone.getTimeZone(setting.value)}" />
                     </g:if>
                 </div>
             </g:each>

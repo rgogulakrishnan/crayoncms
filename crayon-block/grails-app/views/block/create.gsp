@@ -22,7 +22,13 @@
             </ul>
             </g:hasErrors>
             <g:form action="save">
-                <f:all bean="block"/>
+                <f:field bean="block" property="name" />
+                <f:field bean="block" property="slug" />
+                <f:field bean="block" property="type" />
+                <div class="form-group">
+                    <label class="control-label" for="content">Content</label>
+                    <textarea class="form-control" name="content" id="${(block.type == com.crayoncms.block.enums.BlockType.CODE) ? 'code' : 'content'}">${block.content}</textarea>
+                </div>
                 <g:submitButton name="create" class="btn btn-primary" value="${message(code: 'default.button.save.label', default: 'Save')}" />
                 <g:link class="btn btn-default" action="index"><g:message code="default.button.cancel.label" /></g:link>
             </g:form>

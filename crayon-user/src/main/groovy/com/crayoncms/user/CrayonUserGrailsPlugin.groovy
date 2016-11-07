@@ -26,7 +26,12 @@ Manager users
     // Extra (optional) plugin metadata
 	def crayonMeta = [
 		addonType: "plugin",
-		roles: ["ROLE_MANAGE_USERS": "Manage users", "ROLE_MANAGE_ROLEGROUPS": "Manage groups and roles", "ROLE_UPDATE_PROFILE": "Manage own profile"]
+		roles: [
+                "ROLE_CRAYONCMS_USER_UPDATE": "Manage users",
+                "ROLE_CRAYONCMS_USER_VIEW": "View users",
+                "ROLE_CRAYONCMS_USER_MANAGE_ROLEGROUPS": "Manage groups and roles",
+                "ROLE_CRAYONCMS_USER_UPDATE_PROFILE": "Manage own profile"
+        ]
 	]
 
     // License: one of 'APACHE', 'GPL2', 'GPL3'

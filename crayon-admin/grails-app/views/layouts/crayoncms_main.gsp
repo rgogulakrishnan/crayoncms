@@ -99,7 +99,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <div>&copy 2016 Crayon - version ${applicationContext.getBean('pluginManager')?.getGrailsPlugin("crayon-admin")?.version} / Made with <i class="fa fa-heart"></i> by Gogula Rajaprabhu</div>
+                    <div>&copy 2016 CrayonCMS - version ${applicationContext.getBean('pluginManager')?.getGrailsPlugin("crayon-admin")?.version} / Made with <i class="fa fa-heart"></i> by Gogula Rajaprabhu</div>
                     <div>Environment: ${grails.util.Environment.current.name},
                         Grails: <g:meta name="info.app.grailsVersion"/>,
                         Groovy: ${GroovySystem.getVersion()},

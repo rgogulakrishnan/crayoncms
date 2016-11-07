@@ -1,5 +1,7 @@
 package com.crayoncms.admin
 
+import com.crayoncms.admin.enums.SettingType
+
 class Setting {
 
     String name
@@ -7,7 +9,7 @@ class Setting {
     String description
     String value
     String defaultValue
-    String type
+    SettingType type
     String options
     String section
     boolean mandatory
@@ -18,7 +20,7 @@ class Setting {
         description blank: true, maxSize: 100, nullable: true
         value blank: false, maxSize: 100
         defaultValue blank: true, nullable: true
-        type inList: ["text", "textarea", "radio", "checkbox", "dropdown", "dropdown-multi", "password"]
+        type blank: false
         options blank: true, maxSize: 512, nullable: true
         section blank: false, maxSize: 50
         mandatory blank: false

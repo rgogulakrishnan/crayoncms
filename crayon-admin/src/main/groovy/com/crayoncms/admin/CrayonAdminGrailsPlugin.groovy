@@ -1,6 +1,7 @@
 package com.crayoncms.admin
 
 import com.crayoncms.admin.Setting
+import com.crayoncms.admin.enums.SettingType
 import com.crayoncms.user.Role
 import com.crayoncms.user.RoleGroup
 import com.crayoncms.user.RoleGroupRole
@@ -70,13 +71,22 @@ Tiny CMS for the JVM
         Setting.withTransaction { status ->
             // These are default settings for the website.
             new Setting(name: "Site Name", description: "The name of the website and title to be used around the site",
-                    value: "My CrayonCMS Site", type: "text", section: "General", mandatory: true).save()
+                    value: "My CrayonCMS Site", type: SettingType.TEXT, section: "General", mandatory: true).save()
 
             new Setting(name: "Site Status", value: "Open", options: "['Open', 'Closed']",
-                    type: "radio", section: "General", mandatory: true).save()
+                    type: SettingType.RADIO, section: "General", mandatory: true).save()
 
             new Setting(name: "Maintenance Message", value: "Sorry, this website is currently unavailable.",
-                    type: "textarea", section: "General", mandatory: true).save()
+                    type: SettingType.TEXT_AREA, section: "General", mandatory: true).save()
+
+            new Setting(name: "Time Zone", value: "Asia/Calcutta", type: SettingType.TIME_ZONE_SELECT,
+                    section: "General", mandatory: true).save()
+
+            new Setting(name: "Date format", value: "dd MM, yyyy HH:mm", type: SettingType.TEXT,
+                    section: "General", mandatory: true).save()
+
+            // This is one time setup on boot. Set again on update() in SettingController
+            TimeZone.setDefault(TimeZone.getTimeZone(Setting.findBySlug("time-zone").value))
         }
 
         // By default, these 3 groups will exist
@@ -86,10 +96,10 @@ Tiny CMS for the JVM
             new RoleGroup(name: "Anonymous").save()
         }
 
-        // By default, these 3 users will be there in the system
+        // By default, these 2 users will be there in the system
         User.withTransaction { userStatus ->
-            new User(username: 'admin', password: 'password').save()
-            new User(username: "authenticated", password: "password").save()
+            new User(username: 'admin', password: 'password', email: 'admin@test.com', enabled: true).save()
+            new User(username: "authenticated", password: "password", email: 'auth@test.com', enabled: true).save()
         }
 
         // Lets load the roles given in each plugin into the table

@@ -1,8 +1,8 @@
-package com.crayoncms.page
+package com.crayoncms.block
 
 import grails.plugins.*
 
-class CrayonPageGrailsPlugin extends Plugin {
+class CrayonBlockGrailsPlugin extends Plugin {
 
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "3.2.2 > *"
@@ -12,11 +12,11 @@ class CrayonPageGrailsPlugin extends Plugin {
     ]
 
     // TODO Fill in these fields
-    def title = "Pages" // Headline display name of the plugin
+    def title = "Blocks" // Headline display name of the plugin
     def author = "Gogula Rajaprabhu"
     def authorEmail = "rgogulakrishnan@gmail.com"
     def description = '''\
-Manage site pages.
+Manage individual blocks.
 '''
     def profiles = ['web']
 
@@ -26,9 +26,10 @@ Manage site pages.
     // Extra (optional) plugin metadata
 	def crayonMeta = [
 		addonType: "plugin",
-		roles: ["ROLE_CRAYONCMS_PAGE_CREATE": "Create a page",
-                "ROLE_CRAYONCMS_PAGE_EDIT": "Edit a page",
-                "ROLE_CRAYONCMS_PAGE_DELETE": "Delete a page"]
+		roles: ["ROLE_CRAYONCMS_BLOCK_CREATE": "Create a block",
+                "ROLE_CRAYONCMS_BLOCK_EDIT": "Edit a block",
+                "ROLE_CRAYONCMS_BLOCK_VIEW": "View blocks",
+                "ROLE_CRAYONCMS_BLOCK_DELETE": "Delete a block"]
 	]
 
     // License: one of 'APACHE', 'GPL2', 'GPL3'

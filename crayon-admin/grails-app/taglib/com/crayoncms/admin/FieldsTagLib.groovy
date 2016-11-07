@@ -3,13 +3,13 @@ package com.crayoncms.admin
 import grails.plugin.springsecurity.SpringSecurityUtils
 import grails.util.GrailsNameUtils
 
+import java.sql.Timestamp
+
 class FieldsTagLib {
 
     static namespace = "crayoncms"
     static defaultEncodeAs = [taglib:'html']
     static encodeAsForTags = [table: [taglib:'none']]
-
-    def springSecurityService
 
     def table = { attrs ->
         
@@ -26,7 +26,12 @@ class FieldsTagLib {
                 if(index == 0) {
                     tableString += "<td>${link(method: 'GET', action:'edit', resource: bean){ bean."${item}" }}</td>"
                 } else {
-                    tableString += "<td>${bean."${item}"}</td>"
+                    if(bean."${item}".getClass() == Timestamp.class) {
+                        tableString += "<td width='18%'>${ TimeDistanceUtil.getTimeDistance(bean."${item}") }</td>"
+                    } else {
+                        tableString += "<td>${bean."${item}"}</td>"
+                    }
+
                 }
             }
 

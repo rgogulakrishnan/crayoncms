@@ -25,7 +25,13 @@
             </g:hasErrors>
             <g:form resource="${this.block}" method="PUT">
                 <g:hiddenField name="version" value="${this.block?.version}" />
-                <f:all bean="block"/>
+                <f:field bean="block" property="name" />
+                <f:field bean="block" property="slug" />
+                <f:field bean="block" property="type" />
+                <div class="form-group">
+                    <label class="control-label" for="content">Content</label>
+                    <textarea class="form-control" name="content" id="${(block.type == com.crayoncms.block.enums.BlockType.CODE) ? 'code' : 'content'}">${block.content}</textarea>
+                </div>
                 <sec:ifAllGranted roles="ROLE_CRAYONCMS_BLOCK_EDIT">
                     <input class="btn btn-primary" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
                     <g:link class="btn btn-default" action="index"><g:message code="default.button.cancel.label" /></g:link>

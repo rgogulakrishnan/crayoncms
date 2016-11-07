@@ -5,24 +5,27 @@ import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
 
 @Transactional(readOnly = true)
-@Secured("ROLE_ADMIN")
 class UserController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    @Secured("ROLE_CRAYONCMS_USER_VIEW")
     def index(Integer max) {
         params.max = Math.min(max ?: 20, 100)
         respond User.list(params), model:[userCount: User.count()]
     }
 
+    @Secured("ROLE_CRAYONCMS_USER_VIEW")
     def show(User user) {
         respond user
     }
 
+    @Secured("ROLE_CRAYONCMS_USER_UPDATE")
     def create() {
         respond new User(params)
     }
 
+    @Secured("ROLE_CRAYONCMS_USER_UPDATE")
     @Transactional
     def save(User user) {
         if (user == null) {
@@ -41,17 +44,20 @@ class UserController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), user.id])
-                redirect user
+                flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), user.username])
+                flash.outcome = "success"
+                redirect action: "index"
             }
             '*' { respond user, [status: CREATED] }
         }
     }
 
+    @Secured("ROLE_CRAYONCMS_USER_UPDATE")
     def edit(User user) {
         respond user
     }
 
+    @Secured("ROLE_CRAYONCMS_USER_UPDATE")
     @Transactional
     def update(User user) {
         if (user == null) {
@@ -70,13 +76,15 @@ class UserController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'user.label', default: 'User'), user.id])
-                redirect user
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'user.label', default: 'User'), user.username])
+                flash.outcome = "success"
+                redirect action: "index"
             }
             '*'{ respond user, [status: OK] }
         }
     }
 
+    @Secured("ROLE_CRAYONCMS_USER_UPDATE")
     @Transactional
     def delete(User user) {
 
@@ -90,7 +98,8 @@ class UserController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'user.label', default: 'User'), user.id])
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'user.label', default: 'User'), user.username])
+                flash.outcome = "success"
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }

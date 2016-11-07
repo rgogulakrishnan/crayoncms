@@ -25,6 +25,10 @@ class SettingController {
             }
         }
 
+        // Set timezone.
+        // TODO: See if this is set only when that field is changed.
+        TimeZone.setDefault(TimeZone.getTimeZone(Setting.findBySlug("time-zone").value))
+
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'setting.label', default: 'Setting')])

@@ -16,7 +16,8 @@
 
         <div id="list-user" class="content scaffold-list" role="main">
         
-            <f:table collection="${userList}" properties="['username', 'email', 'firstName', 'lastName', 'authorities']"/>
+            <crayoncms:table collection="${userList}" properties="['username', 'email', 'firstName', 'lastName', 'authorities']"
+                deleteRole="ROLE_CRAYONCMS_USER_UPDATE"/>
 
 			<g:if test="${userCount > 20 }">
             	<div class="pagination">
