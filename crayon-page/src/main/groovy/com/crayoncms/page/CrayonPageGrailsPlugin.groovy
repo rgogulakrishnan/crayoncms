@@ -12,11 +12,11 @@ class CrayonPageGrailsPlugin extends Plugin {
     ]
 
     // TODO Fill in these fields
-    def title = "Pages" // Headline display name of the plugin
+    def title = "Pages & Blocks" // Headline display name of the plugin
     def author = "Gogula Rajaprabhu"
     def authorEmail = "rgogulakrishnan@gmail.com"
     def description = '''\
-Manage site pages.
+Manage site pages and blocks.
 '''
     def profiles = ['web']
 
@@ -28,7 +28,11 @@ Manage site pages.
 		addonType: "plugin",
 		roles: ["ROLE_CRAYONCMS_PAGE_CREATE": "Create a page",
                 "ROLE_CRAYONCMS_PAGE_EDIT": "Edit a page",
-                "ROLE_CRAYONCMS_PAGE_DELETE": "Delete a page"]
+                "ROLE_CRAYONCMS_PAGE_DELETE": "Delete a page",
+                "ROLE_CRAYONCMS_BLOCK_CREATE": "Create a block",
+                "ROLE_CRAYONCMS_BLOCK_EDIT": "Edit a block",
+                "ROLE_CRAYONCMS_BLOCK_VIEW": "View blocks",
+                "ROLE_CRAYONCMS_BLOCK_DELETE": "Delete a block"]
 	]
 
     // License: one of 'APACHE', 'GPL2', 'GPL3'

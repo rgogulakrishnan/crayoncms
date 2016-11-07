@@ -1,8 +1,9 @@
 package com.crayoncms.block
 
-import static org.springframework.http.HttpStatus.*
-import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
+import grails.transaction.Transactional
+
+import static org.springframework.http.HttpStatus.*
 
 @Transactional(readOnly = true)
 class BlockController {

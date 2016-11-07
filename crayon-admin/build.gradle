@@ -1,6 +1,5 @@
 dependencies {
 	compile project(":crayon-page"),
-			project(":crayon-block"),
 			project(":crayon-menu"),
 			project(":crayon-user"),
 			project(":crayon-theme")

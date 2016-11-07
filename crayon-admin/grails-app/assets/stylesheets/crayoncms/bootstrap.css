@@ -5,8 +5,8 @@
  */
 
 /*!
- * Generated using the Bootstrap Customizer (http://getbootstrap.com/customize/?id=0eef6b3e07d4ba7c0cefca4f637b7c97)
- * Config saved to config.json and https://gist.github.com/0eef6b3e07d4ba7c0cefca4f637b7c97
+ * Generated using the Bootstrap Customizer (http://getbootstrap.com/customize/?id=88b98433c629b6babe0ee9322d016df4)
+ * Config saved to config.json and https://gist.github.com/88b98433c629b6babe0ee9322d016df4
  */
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
@@ -1088,7 +1088,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Open Sans", "sans-serif";
+  font-family: "Raleway", "sans-serif";
   font-size: 14px;
   line-height: 1.42857143;
   color: #333333;
@@ -3536,7 +3536,7 @@ tbody.collapse.in {
   list-style: none;
   font-size: 14px;
   text-align: left;
-  background-color: #3d454d;
+  background-color: #2e343b;
   border: 1px solid #cccccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 4px;
@@ -3568,7 +3568,7 @@ tbody.collapse.in {
 .dropdown-menu > li > a:focus {
   text-decoration: none;
   color: #e5e5e5;
-  background-color: #32383f;
+  background-color: #23272d;
 }
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,

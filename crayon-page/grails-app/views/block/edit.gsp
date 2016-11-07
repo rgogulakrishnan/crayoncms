@@ -7,13 +7,12 @@
     </head>
     <body>
     	<content tag="header">
-       		    <sec:ifAllGranted roles="ROLE_CRAYONCMS_BLOCK_EDIT">
-                    <g:message code="default.edit.label" args="[entityName]" />
-                </sec:ifAllGranted>
-                <sec:ifNotGranted roles="ROLE_CRAYONCMS_BLOCK_EDIT">
-                    <g:message code="default.view.label" args="[entityName]" />
-                </sec:ifNotGranted>
-            </h1>
+            <sec:ifAllGranted roles="ROLE_CRAYONCMS_BLOCK_EDIT">
+                <g:message code="default.edit.label" args="[entityName]" />
+            </sec:ifAllGranted>
+            <sec:ifNotGranted roles="ROLE_CRAYONCMS_BLOCK_EDIT">
+                <g:message code="default.view.label" args="[entityName]" />
+            </sec:ifNotGranted>
        	</content>
 
         <div id="edit-block" class="content scaffold-edit" role="main">
