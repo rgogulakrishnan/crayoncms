@@ -63,8 +63,8 @@ subprojects { Project project ->
 	}
 	
 	grailsPublish {
-		user = bintrayUser
-		key = bintrayApiKey
+		user = project.hasProperty("bintrayUser") ? bintrayUser : ''
+		key = project.hasProperty("bintrayApiKey") ? bintrayApiKey : ''
 		githubSlug = 'crayoncms/crayoncms'
 		//userOrg = 'crayoncms'
 		license {
