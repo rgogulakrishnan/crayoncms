@@ -1,4 +1,4 @@
-package com.crayoncms
+package com.crayoncms.admin
 
 import grails.test.mixin.TestFor
 import spock.lang.Specification
