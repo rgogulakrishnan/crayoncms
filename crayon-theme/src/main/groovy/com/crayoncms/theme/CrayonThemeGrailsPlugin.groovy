@@ -27,9 +27,8 @@ Manage site themes.
     def crayonMeta = [
             addonType: "plugin",
             roles: ["ROLE_CRAYONCMS_LAYOUT_MANAGE": "Manage layouts",
-                    "ROLE_CRAYONCMS_LAYOUT_VIEW": "View layouts",
-                    "ROLE_CRAYONCMS_TEMPLATE_MANAGE": "Manage templates",
-                    "ROLE_CRAYONCMS_TEMPLATE_VIEW": "View templates"]
+                    "ROLE_CRAYONCMS_LAYOUT_VIEW": "View layouts"
+            ]
     ]
 
     // License: one of 'APACHE', 'GPL2', 'GPL3'

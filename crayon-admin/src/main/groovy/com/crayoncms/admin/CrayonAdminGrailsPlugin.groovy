@@ -89,10 +89,10 @@ Tiny CMS for the JVM
             TimeZone.setDefault(TimeZone.getTimeZone(Setting.findBySlug("time-zone").value))
         }
 
-        // By default, these 1 admin group will always exist
+        // By default, these 2 groups will exist
         RoleGroup.withTransaction { status ->
             new RoleGroup(name: "Administrator").save()
-            new RoleGroup(name: "Authenticated").save()
+            new RoleGroup(name: "Anonymous").save()
         }
 
         // By default, these 2 users will be there in the system

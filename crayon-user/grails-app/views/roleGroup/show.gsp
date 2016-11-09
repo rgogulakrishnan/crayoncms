@@ -24,7 +24,7 @@
                     <div class="col-md-3">
                         <ul class="">
                             <g:each in="${allRoleGroups}" var="rolGrp">
-
+                                <g:if test="${rolGrp.name != 'Anonymous'}">
                                     <li class="list <g:if test="${rolGrp.name == roleGroup.name}">active</g:if>" >
                                     <div class="row">
                                         <div class="col-md-8">
@@ -41,7 +41,7 @@
                                             </div>
                                          </g:if></div>
                                     </li>
-
+                                </g:if>
                             </g:each>
                         </ul>
                         <br />
