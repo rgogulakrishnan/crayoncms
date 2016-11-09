@@ -95,17 +95,19 @@
         
         <g:layoutBody/>
 
-        <footer class="footer" role="contentinfo">
-
+        <footer class="navbar-bottom" role="contentinfo">
+            <hr />
             <div class="row">
+                <div class="col-xs-12">&copy 2016 CrayonCMS - version ${applicationContext.getBean('pluginManager')?.getGrailsPlugin("crayon-admin")?.version} <span class="hidden-xs"> / Made with <i class="fa fa-heart"></i> by Gogula Rajaprabhu</span></div>
+                <div class="col-xs-12 hidden-sm hidden-md hidden-lg">Made with <i class="fa fa-heart"></i> by Gogula Rajaprabhu</div>
+
                 <div class="col-md-12">
-                    <div>&copy 2016 CrayonCMS - version ${applicationContext.getBean('pluginManager')?.getGrailsPlugin("crayon-admin")?.version} / Made with <i class="fa fa-heart"></i> by Gogula Rajaprabhu</div>
-                    <div>Environment: ${grails.util.Environment.current.name},
-                        Grails: <g:meta name="info.app.grailsVersion"/>,
-                        Groovy: ${GroovySystem.getVersion()},
-                        JVM: ${System.getProperty('java.version')},
-                        Reloading: ${grails.util.Environment.reloadingAgentEnabled}
-                    </div>
+                    Environment: ${grails.util.Environment.current.name},
+                    Grails: <g:meta name="info.app.grailsVersion"/>,
+                    Groovy: ${GroovySystem.getVersion()},
+                    <span class="hidden-sm hidden-md hidden-lg"><br /></span>
+                    JVM: ${System.getProperty('java.version')},
+                    Reloading: ${grails.util.Environment.reloadingAgentEnabled}
                 </div>
             </div>
         </footer>

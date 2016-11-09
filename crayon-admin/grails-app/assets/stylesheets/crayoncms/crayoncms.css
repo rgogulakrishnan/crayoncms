@@ -54,18 +54,19 @@ img {
     padding: 0 0.25em;
 }
 
-.footer {
-    border-top: 1px solid #CCCCCC;
-    clear: both;
+footer {
     font-size: 0.85em;
-    margin-top: 4em;
-    padding-top: 0.6em;
-    min-height: 1em;
-    margin-bottom:20px;
+    height: 70px;
+    margin-bottom:25px;
 }
 
-.footer a {
+footer a {
     color: #4D8618;
+}
+
+hr {
+    margin-bottom:10px;
+    border-color:#ddd;
 }
 
 a {
@@ -76,18 +77,6 @@ a:hover {
     color: #db4800;
     text-decoration: none
 }
-
-.spinner {
-    background: url(../images/spinner.gif) 50% 50% no-repeat transparent;
-    height: 16px;
-    width: 16px;
-    padding: 0.5em;
-    position: absolute;
-    right: 0;
-    top: 0;
-    text-indent: -9999px;
-}
-
 
 /* CREATE/EDIT FORMS AND SHOW PAGES */
 
@@ -126,27 +115,6 @@ fieldset,
     margin-left: 27%;
 }
 
-label {
-    cursor: pointer;
-    display: inline-block;
-    margin: 0 0.25em 0 0;
-}
-
-input, select, textarea {
-    background-color: #fcfcfc;
-    border: 1px solid #cccccc;
-    font-size: 1em;
-    padding: 0.2em 0.4em;
-}
-
-select {
-    padding: 0.2em 0.2em 0.2em 0;
-}
-
-select[multiple] {
-    vertical-align: top;
-}
-
 textarea {
     width: 250px;
     height: 150px;
@@ -158,6 +126,7 @@ input[type=checkbox], input[type=radio] {
     background-color: transparent;
     border: 0;
     padding: 0;
+
 }
 
 input:focus, select:focus, textarea:focus {
@@ -272,62 +241,14 @@ input:invalid, select:invalid, textarea:invalid {
     color: #cc0000;
 }
 
-/* TABLES */
-
-table {
-    border-top: 1px solid #DFDFDF;
-    width: 100%;
-    margin-bottom: 1em;
-}
-
-tr {
-    border: 0;
-}
-
-tr>td:first-child, tr>th:first-child {
-    padding-left: 1.25em;
-}
-
-tr>td:last-child, tr>th:last-child {
-    padding-right: 1.25em;
-}
-
-td, th {
-    line-height: 1.5em;
-    padding: 0.5em 0.6em;
-    text-align: left;
-    vertical-align: top;
-}
-
 th {
     background-color: #efefef;
-    color: #666666;
-    font-weight: bold;
-    line-height: 1.7em;
-    padding: 0.2em 0.6em;
 }
-
-thead th {
-    white-space: nowrap;
-}
-
-th a {
-    display: block;
-    text-decoration: none;
-}
-
-th a:link, th a:visited {
-    color: #666666;
-}
-
-th a:hover, th a:focus {
-    color: #333333;
-}
-
 th.sortable a {
     background-position: right;
     background-repeat: no-repeat;
     padding-right: 1.1em;
+    color:#444;
 }
 
 th.asc a {
@@ -444,7 +365,7 @@ ul, .menu {
 .list {
 	list-style:none;
 	border-bottom: 1px solid #ddd;
-	padding:8px;
+	padding:8px 0;
 	cursor: pointer;
 }
 li.active{

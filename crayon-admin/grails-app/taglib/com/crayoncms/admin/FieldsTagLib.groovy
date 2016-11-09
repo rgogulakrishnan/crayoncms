@@ -27,7 +27,7 @@ class FieldsTagLib {
                     tableString += "<td>${link(method: 'GET', action:'edit', resource: bean){ bean."${item}" }}</td>"
                 } else {
                     if(bean."${item}".getClass() == Timestamp.class) {
-                        tableString += "<td width='18%'>${ TimeDistanceUtil.getTimeDistance(bean."${item}") }</td>"
+                        tableString += "<td width='18%'>${ DateTimeUtil.getTimeDistance(bean."${item}") }</td>"
                     } else {
                         tableString += "<td>${bean."${item}"}</td>"
                     }

@@ -8,13 +8,13 @@
     </head>
     <body>
         <content tag="header">
-        	<g:message code="default.lists.label" args="[entityName]" /></h1>
+        	<g:message code="default.lists.label" args="[entityName]" />
         </content>
         <content tag="right-menu">
 
         </content>
         <div id="list-plugin" class="content scaffold-list" role="main">
-            <g:form name="settingsForm" action="save" method="PUT">
+            <g:form class="" name="settingsForm" action="save" method="PUT">
             <g:each var="setting" in="${settingList}">
                 <div class="form-group">
                     <label for="${setting.name}">${setting.name}</label>
@@ -25,13 +25,13 @@
                         <g:textArea class="form-control" name="${setting.name}" value="${setting.value}" rows="5" />
                     </g:if>
                     <g:if test="${setting.type == SettingType.RADIO}">
-                        <g:radioGroup class="form-control" name="${setting.name}"
+                        <g:radioGroup class="hh" name="${setting.name}"
                             labels="${Eval.me(setting.options)}" values="${Eval.me(setting.options)}" value="${setting.value}" >
-                            <div>${it.label} ${it.radio}</div>
+                            <span>${it.label} ${it.radio}</span>
                         </g:radioGroup>
                     </g:if>
                     <g:if test="${setting.type == SettingType.TIME_ZONE_SELECT}">
-                        <g:timeZoneSelect name="${setting.name}" value="${java.util.TimeZone.getTimeZone(setting.value)}" />
+                        <g:timeZoneSelect class="form-control" name="${setting.name}" value="${java.util.TimeZone.getTimeZone(setting.value)}" />
                     </g:if>
                 </div>
             </g:each>

@@ -82,18 +82,17 @@ Tiny CMS for the JVM
             new Setting(name: "Time Zone", value: "Asia/Calcutta", type: SettingType.TIME_ZONE_SELECT,
                     section: "General", mandatory: true).save()
 
-            new Setting(name: "Date format", value: "dd MM, yyyy HH:mm", type: SettingType.TEXT,
+            new Setting(name: "Date format", value: "dd MMM, yyyy hh:mm a", type: SettingType.TEXT,
                     section: "General", mandatory: true).save()
 
             // This is one time setup on boot. Set again on update() in SettingController
             TimeZone.setDefault(TimeZone.getTimeZone(Setting.findBySlug("time-zone").value))
         }
 
-        // By default, these 3 groups will exist
+        // By default, these 1 admin group will always exist
         RoleGroup.withTransaction { status ->
             new RoleGroup(name: "Administrator").save()
             new RoleGroup(name: "Authenticated").save()
-            new RoleGroup(name: "Anonymous").save()
         }
 
         // By default, these 2 users will be there in the system

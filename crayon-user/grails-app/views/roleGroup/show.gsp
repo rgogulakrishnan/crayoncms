@@ -30,7 +30,7 @@
                                         <div class="col-md-8">
                                             <g:link action="show" resource="${rolGrp}">${rolGrp.name}</g:link>
                                         </div>
-                                        <g:if test="${rolGrp.name != 'Administrator' && rolGrp.name != 'Anonymous'}">
+                                        <g:if test="${rolGrp.name != 'Administrator'}">
                                             <div class="col-md-1">
                                                 <g:link action="edit" resource="${rolGrp}" data-toggle="modal" data-target=".modal"><i class="fa fa-pencil"></i></g:link>
                                             </div>
