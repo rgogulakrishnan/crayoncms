@@ -14,8 +14,6 @@ class Page {
 	Layout layout
 	String keywords
 	String description
-	short parent
-	int menuOrder
 	RoleGroup roleGroup
 	String bodyCss
 	Date dateCreated
@@ -24,20 +22,17 @@ class Page {
 	static hasMany = [roleGroup: RoleGroup]
 
     static constraints = {
-		name maxSize:160
-		slug maxSize: 170, unique: true
-		content widget: 'textarea', nullable: true
+		name maxSize: 160, blank: false
+		slug maxSize: 170, unique: true, blank: false
+		content widget: 'textarea', nullable: true, blank: true
         layout [:]
-		description maxSize: 250, widget: 'textarea'
-		keywords maxSize: 200
-    	parent maxSize: 1, display: true
-    	menuOrder maxSize: 4, display: false
+		description maxSize: 250, blank: true, widget: 'textarea'
+		keywords maxSize: 200, blank: true
 		roleGroup [:]
 		bodyCss blank: true, maxSize: 50
     }
 	
 	static mapping = {
 		content type: 'text'
-		//access column: 'role_group_id'
 	}
 }

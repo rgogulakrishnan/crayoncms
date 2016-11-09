@@ -1,8 +1,9 @@
 package com.crayoncms.page
 
+import com.crayoncms.page.enums.PageStatus
 import com.crayoncms.user.RoleGroup
 import com.crayoncms.user.UserRoleGroup
-import grails.plugin.springsecurity.SpringSecurityUtils
+import com.crayoncms.theme.Layout
 import org.grails.plugins.BinaryGrailsPlugin
 
 import static org.springframework.http.HttpStatus.*
@@ -27,6 +28,12 @@ class PageController {
     def show(String slug) {
 		Page page = Page.findBySlug(slug ?: "home")
         if(page) {
+
+            // Page should have published status
+            if(page.status != PageStatus.PUBLISHED) {
+                notFound()
+                return
+            }
 
             // First see if the current user has access to the requested page
             if(springSecurityService.isLoggedIn()) {
@@ -88,7 +95,6 @@ class PageController {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'page.label', default: 'Page'), page.name])
 				flash.outcome = "success"
-                //redirect page
 				redirect action: "index"
             }
             '*' { respond page, [status: CREATED, view: "index"] }
@@ -121,7 +127,6 @@ class PageController {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'page.label', default: 'Page'), page.name])
 				flash.outcome = "success"
-                //redirect page
 				redirect action: "index"
             }
             '*'{ respond page, [status: OK] }
@@ -143,6 +148,7 @@ class PageController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'page.label', default: 'Page'), page.name])
+                flash.outcome = "success"
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }

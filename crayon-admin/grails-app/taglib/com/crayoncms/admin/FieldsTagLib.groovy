@@ -37,7 +37,7 @@ class FieldsTagLib {
 
             tableString += "<td width=\"4%\">"
             if(attrs.deleteRole && SpringSecurityUtils.ifAllGranted(attrs.deleteRole)) {
-                tableString += form(resource:bean, method:"DELETE") { "<input type=\"submit\" class=\"fa fa-times\" value=\"&#xf00d;\" onclick=\"return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');\" / >" }
+                tableString += form(resource:bean, method:"DELETE") { "<input type=\"submit\" class=\"fa fa-trash-o\" value=\"&#xf014;\" onclick=\"return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');\" / >" }
             }
         }
 

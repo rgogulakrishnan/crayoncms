@@ -30,13 +30,13 @@
                                         <div class="col-md-8">
                                             <g:link action="show" resource="${rolGrp}">${rolGrp.name}</g:link>
                                         </div>
-                                        <g:if test="${rolGrp.name != 'Administrator' && rolGrp.name != 'Authenticated' && rolGrp.name != 'Anonymous'}">
+                                        <g:if test="${rolGrp.name != 'Administrator' && rolGrp.name != 'Anonymous'}">
                                             <div class="col-md-1">
                                                 <g:link action="edit" resource="${rolGrp}" data-toggle="modal" data-target=".modal"><i class="fa fa-pencil"></i></g:link>
                                             </div>
                                             <div class="col-md-1 text-right">
                                                 <g:form resource="${rolGrp}" method="DELETE">
-                                                    <input type="submit" class="fa fa-times" value="&#xf00d;" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                                                    <input type="submit" class="fa fa-trash-o" value="&#xf014;" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
                                                 </g:form>
                                             </div>
                                          </g:if></div>
@@ -59,7 +59,7 @@
                                         <li class="list">
                                             <div class="row">
                                                 <div class="col-xs-10 col-md-11">${role}</div>
-                                                <div class="col-xs-2 col-md-1 text-center">
+                                                <div class="col-xs-2 col-md-1 text-right">
                                                     <g:if test="${ authoritiesGrouped.find { it.key == plugin.key}?.value?.contains(role) }">
                                                         <g:checkBox id="${role.authority}_removeRole" name="${role.authority}_removeRole"
                                                         value="${true}"

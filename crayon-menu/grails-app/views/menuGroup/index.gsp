@@ -34,7 +34,7 @@
                                             <g:link class="" action="edit" resource="${menuGroup}" data-toggle="modal" data-target=".modal">
                                                 <i class="fa fa-pencil"></i>
                                             </g:link>
-                                            <input class="fa fa-times" type="submit" value="&#xf00d" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                                            <input class="fa fa-trash-o" type="submit" value="&#xf014" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
                                         </g:form>
             						</sec:ifAllGranted>
             					</span>
