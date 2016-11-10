@@ -40,12 +40,8 @@
 						<f:field bean="page" property="layout" />
 						<f:field bean="page" property="bodyCss" />
 	            	</div>
-               </div>
-
-                <sec:ifAllGranted roles="ROLE_CRAYONCMS_PAGE_EDIT">
-                    <input class="btn btn-primary" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
-                    <g:link class="btn btn-default" action="index"><g:message code="default.button.cancel.label" /></g:link>
-                </sec:ifAllGranted>
+                </div>
+                <crayoncms:adminSaveButtons action="edit" ifAllGranted="ROLE_CRAYONCMS_PAGE_EDIT" />
             </g:form>
         </div>
     </body>

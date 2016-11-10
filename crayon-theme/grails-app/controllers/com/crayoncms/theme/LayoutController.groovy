@@ -41,7 +41,11 @@ class LayoutController {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'layout.label', default: 'Layout'), layout.name])
                 flash.outcome = "success"
-                redirect action: "index"
+                if(params.create == message(code: 'default.button.save.label')) {
+                    redirect action: "edit", id: layout.id
+                } else {
+                    redirect action: "index"
+                }
             }
             '*' { respond layout, [status: CREATED] }
         }
@@ -73,7 +77,11 @@ class LayoutController {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'layout.label', default: 'Layout'), layout.name])
                 flash.outcome = "success"
-                redirect action: "index"
+                if(params.edit == message(code: 'default.button.update.label')) {
+                    redirect action: "edit", id: layout.id
+                } else {
+                    redirect action: "index"
+                }
             }
             '*'{ respond layout, [status: OK] }
         }

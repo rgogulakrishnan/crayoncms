@@ -26,12 +26,8 @@
             </ul>
             </g:hasErrors>
             <g:form action="save">
-                <fieldset class="form">
                     <f:all bean="user"/>
-                </fieldset>
-                <fieldset class="buttons">
-                    <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
-                </fieldset>
+                <crayoncms:adminSaveButtons action="create" />
             </g:form>
         </div>
     </body>

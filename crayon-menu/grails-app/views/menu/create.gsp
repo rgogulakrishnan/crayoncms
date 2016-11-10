@@ -25,8 +25,7 @@
             </g:hasErrors>
             <g:form action="save">
                 <f:all bean="menu"/>
-                <g:submitButton name="create" class="btn btn-primary" value="${message(code: 'default.button.save.label', default: 'Save')}" />
-                <g:link class="btn btn-default" controller="menuGroup" action="index"><g:message code="default.button.cancel.label" /></g:link>
+                <crayoncms:adminSaveButtons action="create" />
             </g:form>
         </div>
     </body>

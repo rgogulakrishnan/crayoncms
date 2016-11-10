@@ -26,10 +26,7 @@
             <g:form resource="${this.user}" method="PUT">
                 <g:hiddenField name="version" value="${this.user?.version}" />
                 <f:all bean="user"/>
-                <sec:ifAllGranted roles="ROLE_CRAYONCMS_USER_UPDATE">
-                    <input class="btn btn-primary" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
-                    <g:link class="btn btn-default" action="index"><g:message code="default.button.cancel.label" /></g:link>
-                </sec:ifAllGranted>
+                <crayoncms:adminSaveButtons action="edit" ifAllGranted="ROLE_CRAYONCMS_USER_UPDATE" />
             </g:form>
         </div>
     </body>

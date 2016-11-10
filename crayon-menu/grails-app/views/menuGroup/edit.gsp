@@ -10,9 +10,6 @@
 	<g:form resource="${menuGroup}" method="PUT">
 		<g:hiddenField name="version" value="${menuGroup?.version}" />
 		<f:field bean="menuGroup" property="name" />
-		<input class="btn btn-primary" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
-		<g:link class="btn btn-default" data-dismiss="modal" aria-label="Cancel">
-			<g:message code="default.button.cancel.label" />
-		</g:link>
+		<crayoncms:adminSaveButtons action="edit" ifAllGranted="ROLE_MANAGE_MENUGROUPS" modal="true" />
 	</g:form>
 </div>

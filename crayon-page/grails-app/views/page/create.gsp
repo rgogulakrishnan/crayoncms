@@ -39,9 +39,7 @@
 						<f:field bean="page" property="bodyCss" />
 	            	</div>
                </div>
-				<g:hiddenField name="content" value="" />
-                <g:submitButton name="create" class="btn btn-primary" value="${message(code: 'default.button.save.label', default: 'Save')}" />
-                <g:link class="btn btn-default" action="index"><g:message code="default.button.cancel.label" /></g:link>
+                <crayoncms:adminSaveButtons action="create" />
             </g:form>
         </div>
     </body>

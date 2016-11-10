@@ -23,8 +23,7 @@
             </g:hasErrors>
             <g:form action="save">
                 <f:all bean="${propertyName}"/>
-                <g:submitButton name="create" class="btn btn-primary" value="\${message(code: 'default.button.save.label', default: 'Save')}" />
-                <g:link class="btn btn-default" action="index"><g:message code="default.button.cancel.label" /></g:link>
+                <crayoncms:adminSaveButtons action="create" ifAllGranted="" />
             </g:form>
         </div>
     </body>

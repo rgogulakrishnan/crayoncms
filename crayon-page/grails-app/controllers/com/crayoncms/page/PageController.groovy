@@ -95,7 +95,11 @@ class PageController {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'page.label', default: 'Page'), page.name])
 				flash.outcome = "success"
-				redirect action: "index"
+                if(params.create == message(code: 'default.button.save.label')) {
+                    redirect action: "edit", id: page.id
+                } else {
+                    redirect action: "index"
+                }
             }
             '*' { respond page, [status: CREATED, view: "index"] }
         }
@@ -127,7 +131,11 @@ class PageController {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'page.label', default: 'Page'), page.name])
 				flash.outcome = "success"
-				redirect action: "index"
+                if(params.edit == message(code: 'default.button.update.label')) {
+                    redirect action: "edit", id: page.id
+                } else {
+                    redirect action: "index"
+                }
             }
             '*'{ respond page, [status: OK] }
         }

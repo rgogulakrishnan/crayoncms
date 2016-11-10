@@ -7,12 +7,9 @@
 	<h4 class="modal-title" id="myLargeModalLabel"><g:message code="default.edit.label" args="[entityName]" /></h4> 
 </div> 
 <div class="modal-body">	
-	<g:form action="save">
+	<g:form resource="${this.roleGroup}"  method="PUT">
 		<f:field bean="roleGroup" property="name" />
-		<g:submitButton name="create" class="btn btn-primary" value="${message(code: 'default.button.save.label', default: 'Save')}" />
-		<g:link class="btn btn-default" data-dismiss="modal" aria-label="Cancel">
-			<g:message code="default.button.cancel.label" />
-		</g:link>
+		<crayoncms:adminSaveButtons action="edit" ifAllGranted="ROLE_CRAYONCMS_USER_MANAGE_ROLEGROUPS" modal="true" />
 	</g:form>
 </div> 
 

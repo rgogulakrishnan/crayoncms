@@ -11,7 +11,7 @@
 	        <g:message code="default.lists.label" args="[entityName]" />
 		</content>
 	    <content tag="right-menu">
-	        <g:link class="btn btn-info" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link>
+	        <g:link class="btn btn-primary" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link>
 	    </content>
 
         <div id="list-user" class="content scaffold-list" role="main">

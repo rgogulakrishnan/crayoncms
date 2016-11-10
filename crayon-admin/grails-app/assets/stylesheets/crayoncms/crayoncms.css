@@ -390,3 +390,6 @@ input.fa.fa-trash-o {
 .fa-pencil {color:#f0ad4e}
 
 .CodeMirror {border:1px solid #ddd;height: auto;}
+.btn-space {
+    margin-right: 5px;
+}

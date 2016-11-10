@@ -42,8 +42,11 @@ class BlockController {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'block.label', default: 'Block'), block.name])
                 flash.outcome = "success"
-                //redirect block
-                redirect action: "index"
+                if(params.create == message(code: 'default.button.save.label')) {
+                    redirect action: "edit", id: block.id
+                } else {
+                    redirect action: "index"
+                }
             }
             '*' { respond block, [status: CREATED] }
         }
@@ -75,8 +78,11 @@ class BlockController {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'block.label', default: 'Block'), block.name])
                 flash.outcome = "success"
-                //redirect block
-                redirect action: "index"
+                if(params.edit == message(code: 'default.button.update.label')) {
+                    redirect action: "edit", id: block.id
+                } else {
+                    redirect action: "index"
+                }
             }
             '*'{ respond block, [status: OK] }
         }

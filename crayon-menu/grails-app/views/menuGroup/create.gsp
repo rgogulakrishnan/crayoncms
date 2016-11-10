@@ -9,9 +9,6 @@
 <div class="modal-body">	
 	<g:form action="save">
 		<f:field bean="menuGroup" property="name" />
-		<g:submitButton name="create" class="btn btn-primary" value="${message(code: 'default.button.save.label', default: 'Save')}" />
-		<g:link class="btn btn-default" data-dismiss="modal" aria-label="Cancel">
-			<g:message code="default.button.cancel.label" />
-		</g:link>
+		<crayoncms:adminSaveButtons action="create" modal="true" />
 	</g:form>
 </div> 

@@ -43,8 +43,11 @@ class ${className}Controller {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: '${propertyName}.label', default: '${className}'), ${propertyName}.title])
                 flash.outcome = "success"
-                //redirect ${propertyName}
-                redirect action: "index"
+                if(params.create == message(code: 'default.button.save.label')) {
+                    redirect action: "edit", id: ${propertyName}.id
+                } else {
+                    redirect action: "index"
+                }
             }
             '*' { respond ${propertyName}, [status: CREATED] }
         }
@@ -74,8 +77,11 @@ class ${className}Controller {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: '${propertyName}.label', default: '${className}'), ${propertyName}.title])
                 flash.outcome = "success"
-                //redirect ${propertyName}
-                redirect action: "index"
+                if(params.create == message(code: 'default.button.save.label')) {
+                    redirect action: "edit", id: ${propertyName}.id
+                } else {
+                    redirect action: "index"
+                }
             }
             '*'{ respond ${propertyName}, [status: OK] }
         }

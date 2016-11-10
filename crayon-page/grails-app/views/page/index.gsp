@@ -17,7 +17,7 @@
         </content>
         <div id="list-page" class="content scaffold-list" role="main">
             
-            <crayoncms:table collection="${pageList}" properties="['name', 'slug', 'status', 'roleGroup']"
+            <crayoncms:table collection="${pageList}" properties="['name', 'slug', 'status', 'roleGroup', 'dateCreated', 'lastUpdated']"
                 deleteRole="ROLE_CRAYONCMS_PAGE_DELETE" />
 
 			<g:if test="${pageCount > 20 }">

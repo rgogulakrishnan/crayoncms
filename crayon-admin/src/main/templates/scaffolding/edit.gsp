@@ -27,8 +27,7 @@
             <g:form resource="\${this.${propertyName}}" method="PUT">
                 <g:hiddenField name="version" value="\${this.${propertyName}?.version}" />
                 <f:all bean="${propertyName}"/>
-                <input class="btn btn-primary" type="submit" value="\${message(code: 'default.button.update.label', default: 'Update')}" />
-                <g:link class="btn btn-default" action="index"><g:message code="default.button.cancel.label" /></g:link>
+                <crayoncms:adminSaveButtons action="edit" ifAllGranted="" />
             </g:form>
         </div>
     </body>

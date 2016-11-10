@@ -44,7 +44,11 @@ class MenuController {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'menu.label', default: 'Menu'), menu.name])
                 flash.outcome = "success"
-                redirect controller: "menuGroup", action: "index"
+                if(params.create == message(code: 'default.button.save.label')) {
+                    redirect action: "edit", id: menu.id
+                } else {
+                    redirect controller: "menuGroup", action: "index"
+                }
             }
             '*' { respond menu, [status: CREATED] }
         }
@@ -74,7 +78,11 @@ class MenuController {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'menu.label', default: 'Menu'), menu.name])
                 flash.outcome = "success"
-                redirect controller: "menuGroup", action: "index"
+                if(params.edit == message(code: 'default.button.update.label')) {
+                    redirect action: "edit", id: menu.id
+                } else {
+                    redirect controller: "menuGroup", action: "index"
+                }
             }
             '*'{ respond menu, [status: OK] }
         }

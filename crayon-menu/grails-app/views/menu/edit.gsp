@@ -17,7 +17,7 @@
           
         <content tag="right-menu">
         	<g:form resource="${menu}" method="DELETE">
-                <input class="btn btn-danger" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                <input class="btn btn-primary" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
             </g:form>
         </content>
         <div id="edit-menu" class="content scaffold-edit" role="main">
@@ -31,10 +31,7 @@
             <g:form resource="${this.menu}" method="PUT">
                 <g:hiddenField name="version" value="${this.menu?.version}" />
                 <f:all bean="menu"/>
-                <sec:ifAllGranted roles="ROLE_MANAGE_MENU">
-                    <input class="btn btn-primary" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
-                    <g:link class="btn btn-default" controller="menuGroup" action="index"><g:message code="default.button.cancel.label" /></g:link>
-                </sec:ifAllGranted>
+                <crayoncms:adminSaveButtons cancelController="menuGroup" action="edit" ifAllGranted="ROLE_MANAGE_MENU" />
             </g:form>
         </div>
     </body>
