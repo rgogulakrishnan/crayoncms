@@ -25,7 +25,7 @@
             </g:hasErrors>
             <g:form action="save">
                 <f:all bean="menu"/>
-                <crayoncms:adminSaveButtons action="create" />
+                <crayoncms:adminSaveButtons cancelController="menuGroup" action="create" />
             </g:form>
         </div>
     </body>

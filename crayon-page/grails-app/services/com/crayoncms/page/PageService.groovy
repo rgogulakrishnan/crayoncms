@@ -12,12 +12,14 @@ class PageService {
 
     def hasAccess() {
 
-        if(springSecurityService.isLoggedIn()) {
-            def user = springSecurityService.currentUser
-            if (user.authorities.contains(RoleGroup.findByName("Administrator"))
-                    || UserRoleGroup.exists((long)user?.id, (long)page?.roleGroup?.id)) {
-                return true
-            }
+        if(! springSecurityService.isLoggedIn()) {
+            return true
+        }
+
+        def user = springSecurityService.currentUser
+        if (user.authorities.contains(RoleGroup.findByName("Administrator"))
+                || UserRoleGroup.exists((long)user?.id, (long)page?.roleGroup?.id)) {
+            return true
         }
 
         return false
