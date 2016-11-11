@@ -15,8 +15,7 @@ class PageController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
     def pluginManager
-    def groovyPagesTemplateEngine
-    def springSecurityService
+    def pageService
 
 	@Secured(["ROLE_CRAYONCMS_PAGE_CREATE", "ROLE_CRAYONCMS_PAGE_EDIT", "ROLE_CRAYONCMS_PAGE_DELETE"])
     def index(Integer max) {
@@ -36,23 +35,14 @@ class PageController {
             }
 
             // First see if the current user has access to the requested page
-            if(springSecurityService.isLoggedIn()) {
-                def user = springSecurityService.currentUser
-                if (!user.authorities.contains(RoleGroup.findByName("Administrator"))
-                        && !UserRoleGroup.exists(user?.id, page?.roleGroup?.id)) {
-                    notFound() // TODO: see if this can be shown with forbidden.
-                    return
-                }
+            if(! pageService.hasAccess()) {
+                notFound() // TODO: see if this can be shown with forbidden.
+                return
             }
 
             // Now lets merge bind content with layout and prepare html
-            def binding = [:] << [content: page.content.encodeAsRaw()]
-            def template = groovyPagesTemplateEngine
-                                .createTemplate(new ByteArrayInputStream(page?.layout?.code?.getBytes("UTF-8")))
-                                .make(binding)
-
             render view: "/index", model: [
-                    content: template, title: page.name, bodyCss: page.bodyCss,
+                    content: pageService.mergeContentWithLayout(page), title: page.name, bodyCss: page.bodyCss,
                     description: page.description, keywords: page.keywords
             ]
         } else {
