@@ -16,6 +16,10 @@
 //= require_tree .
 //= require_self
 
+$('.modal').on('shown.bs.modal', function () {
+    $(this).removeData('bs.modal');
+});
+
 $("#slug").attr('readonly', true);
 
 $("#name").keyup(function(){

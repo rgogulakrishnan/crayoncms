@@ -101,9 +101,9 @@ class MenuController {
 
         request.withFormat {
             form multipartForm {
-            message(code: 'default.deleted.message', args: [message(code: 'menu.label', default: 'Menu'), menu.id])
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'menu.label', default: 'Menu'), menu.name])
                 flash.outcome = "success"
-                redirect controller: "menuGroup", action:"index", method:"GET"
+                redirect controller: "menuGroup", action:"index"
             }
             '*'{ render status: NO_CONTENT }
         }

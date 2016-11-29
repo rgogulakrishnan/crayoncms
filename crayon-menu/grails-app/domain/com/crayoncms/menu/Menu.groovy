@@ -25,8 +25,8 @@ class Menu {
 		menuType blank: false
 		menuTypeValue blank: false, maxSize: 70
 		menuGroup [:]
-		position [:]
-		parent [:]
+		position display: false
+		parent display: false
 		targetBlank [:]
 		access blank: true
 		cssClass maxSize:20, blank: true

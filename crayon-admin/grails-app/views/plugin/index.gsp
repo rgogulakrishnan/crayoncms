@@ -17,7 +17,7 @@
             <div class="panel panel-default">
             	<div class="panel-heading"><h3 class="panel-title">My Plugins</h3></div>
 				<div class="panel-body">
-		  			<table class="table table-striped">
+		  			<table class="table table-hover">
 		            	<thead>
 							<th width="20%">Name</th>
 		            		<th width="45%">Description</th>
@@ -43,7 +43,7 @@
             	<div class="panel-heading"><h3 class="panel-title">Core Plugins</h3></div>
  				<div class="panel-body">
            
-					<table class="table table-striped">
+					<table class="table table-hover">
 		                <thead>
 		                    <th width="20%">Name</th>
 		                    <th width="45%">Description</th>

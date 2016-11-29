@@ -3,7 +3,9 @@ package com.crayoncms.menu.enums
 enum MenuType {
 	
 	PLUGIN("Plugin"), 
-	PAGE("Page"), 
+	PAGE("Page"),
+	LOGIN("Login"),
+	LOGOUT("Logout"),
 	URL("URL"),
 	URI("Uri")
 	

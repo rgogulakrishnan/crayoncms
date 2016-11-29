@@ -238,9 +238,6 @@ input:invalid, select:invalid, textarea:invalid {
     color: #cc0000;
 }
 
-th {
-    background-color: #efefef;
-}
 th.sortable a {
     background-position: right;
     background-repeat: no-repeat;
@@ -393,3 +390,4 @@ input.fa.fa-trash-o {
 .btn-space {
     margin-right: 5px;
 }
+.profileDefault {background: url('profile_default.png') no-repeat 0 0; height:128px; width:128px;margin-bottom:15px;}
