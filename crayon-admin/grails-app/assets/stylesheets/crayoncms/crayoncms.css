@@ -365,11 +365,13 @@ ul, .menu {
 li.active{
     background:#eee;
     overflow:hidden;
-    margin-top:5px;
-    margin-bottom:5px;
 }
 .list:last-child {
 	border-bottom:none;
+}
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+    background:#eee;
+    border-color: #ddd;
 }
 .panel-heading {
 	
@@ -391,3 +393,11 @@ input.fa.fa-trash-o {
     margin-right: 5px;
 }
 .profileDefault {background: url('profile_default.png') no-repeat 0 0; height:128px; width:128px;margin-bottom:15px;}
+#loading {
+    display:none;
+
+
+    position:fixed;
+    top:50%;
+    left:50%;
+}

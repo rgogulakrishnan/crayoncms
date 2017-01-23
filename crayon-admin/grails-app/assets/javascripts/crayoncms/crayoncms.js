@@ -20,6 +20,13 @@ $('.modal').on('shown.bs.modal', function () {
     $(this).removeData('bs.modal');
 });
 
+$(document).ajaxStart(function(){
+    $("#loading").css("display", "block");
+});
+$(document).ajaxComplete(function(){
+    $("#loading").css("display", "none");
+});
+
 $("#slug").attr('readonly', true);
 
 $("#name").keyup(function(){

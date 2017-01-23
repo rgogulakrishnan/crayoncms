@@ -9,8 +9,9 @@ import grails.plugin.springsecurity.annotation.Secured
 class MenuGroupController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static defaultAction = "browse"
 
-    def index(Integer max) {
+    def browse(Integer max) {
         params.max = Math.min(max ?: 10, 100)
 		def menuGroups = MenuGroup.list(params)	
         respond menuGroups, model:[menuGroupCount: MenuGroup.count()]
@@ -40,7 +41,7 @@ class MenuGroupController {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'menuGroup.label', default: 'Menu Group'), menuGroup.name])
                 flash.outcome = "success"
-                redirect action: "index"
+                redirect action: "browse"
             }
             '*' { respond menuGroup, [status: CREATED] }
         }
@@ -70,7 +71,7 @@ class MenuGroupController {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'menuGroup.label', default: 'Menu Group'), menuGroup.name])
                 flash.outcome = "success"
-                redirect action: "index"
+                redirect action: "browse"
             }
             '*'{ respond menuGroup, [status: OK] }
         }
@@ -91,7 +92,7 @@ class MenuGroupController {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'menuGroup.label', default: 'Menu Group'), menuGroup.name])
                 flash.outcome = "success"
-                redirect action:"index", method:"GET"
+                redirect action:"browse", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
         }
@@ -101,7 +102,7 @@ class MenuGroupController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'menuGroup.label', default: 'Menu Group'), params.name])
-                redirect action: "index", method: "GET"
+                redirect action: "browse", method: "GET"
             }
             '*'{ render status: NOT_FOUND }
         }

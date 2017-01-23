@@ -6,8 +6,9 @@ import org.springframework.transaction.TransactionStatus
 class ${className}Controller {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static defaultAction = "browse"
 
-    def index(Integer max) {
+    def browse(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         ${className}.async.task {
             [${propertyName}List: list(params), count: count() ]
@@ -97,7 +98,7 @@ class ${className}Controller {
             request.withFormat {
                 form multipartForm {
                     flash.message = message(code: 'default.deleted.message', args: [message(code: '${className}.label', default: '${className}'), ${propertyName}.id])
-                    redirect action:"index", method:"GET"
+                    redirect action:"browse", method:"GET"
                 }
                 '*'{ render status: NO_CONTENT }
             }
@@ -108,7 +109,7 @@ class ${className}Controller {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: '${propertyName}.label', default: '${className}'), params.id])
-                redirect action: "index", method: "GET"
+                redirect action: "browse", method: "GET"
             }
             '*'{ render status: NOT_FOUND }
         }

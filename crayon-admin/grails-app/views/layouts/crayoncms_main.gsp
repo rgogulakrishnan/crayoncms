@@ -24,7 +24,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <g:link class="navbar-brand logo" controller="dashboard"><asset:image src="crayoncms/logo.png" /></g:link>
+                <g:link class="navbar-brand logo" controller="dashboard"><asset:image src="crayoncms/logo.png" class="img-responsive" /></g:link>
             </div>
             <div class="navbar-collapse collapse" aria-expanded="false">
                 <ul class="nav navbar-nav">
@@ -32,26 +32,26 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Content <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><g:link controller="page">Pages</g:link></li>
-                            <li><g:link controller="block">Blocks</g:link></li>
+                            <li><g:link controller="page" action="browse">Pages</g:link></li>
+                            <li><g:link controller="block" action="browse">Blocks</g:link></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Structure <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><g:link controller="layout">Layouts</g:link></li>
-                            <li><g:link controller="menuGroup">Menu Groups</g:link></li>
+                            <li><g:link controller="layout" action="browse">Layouts</g:link></li>
+                            <li><g:link controller="menuGroup" action="browse">Menu Groups</g:link></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Users <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><g:link controller="roleGroup">Groups & Roles</g:link></li>
-                            <li><g:link controller="user">Users</g:link></li>
+                            <li><g:link controller="roleGroup" action="browse">Groups & Roles</g:link></li>
+                            <li><g:link controller="user" action="browse">Users</g:link></li>
                         </ul>
                     </li>
-                    <li><g:link controller="plugin">Plugins</g:link></li>
-                    <li><g:link controller="setting">Settings</g:link></li>
+                    <li><g:link controller="plugin" action="browse">Plugins</g:link></li>
+                    <li><g:link controller="setting" action="browse">Settings</g:link></li>
                     </sec:ifLoggedIn>
                     
                 </ul>
@@ -62,7 +62,7 @@
                         <li class="right dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><sec:username /> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><g:link controller="user" action="changepwd" >Change Password</g:link></li>
+                                <li><g:link controller="user" action="myprofile" >My Profile</g:link></li>
                                 <li><g:link controller="logout">Logout</g:link></li>
                             </ul>
                         </li>
@@ -98,7 +98,7 @@
         <footer class="navbar-bottom" role="contentinfo">
             <hr />
             <div class="row">
-                <div class="col-xs-12">&copy 2016 CrayonCMS - version ${applicationContext.getBean('pluginManager')?.getGrailsPlugin("crayon-admin")?.version} <span class="hidden-xs"> / Made with <i class="fa fa-heart"></i> by Gogula Rajaprabhu</span></div>
+                <div class="col-xs-12">&copy 2017 CrayonCMS - version ${applicationContext.getBean('pluginManager')?.getGrailsPlugin("crayon-admin")?.version} <span class="hidden-xs"> / Made with <i class="fa fa-heart"></i> by Gogula Rajaprabhu</span></div>
                 <div class="col-xs-12 hidden-sm hidden-md hidden-lg">Made with <i class="fa fa-heart"></i> by Gogula Rajaprabhu</div>
 
                 <div class="col-md-12">
@@ -124,6 +124,8 @@
    			</div>
 		</div>
 	</div>
+
+    <div id="loading"><img src='/assets/crayoncms/ajax-loader.gif' width="32" height="32" /></div>
 
     <asset:javascript src="crayoncms/crayoncms.js"/>
 

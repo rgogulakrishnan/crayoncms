@@ -13,7 +13,7 @@ class FieldsTagLib {
 
     def table = { attrs ->
         
-        def tableString = "<table class=\"table table-striped table-hover\"><thead><tr>"
+        def tableString = "<div class=\"panel panel-default\"><div class=\"panel-body\"><table class=\"table table-hover\"><thead><tr>"
 
 		for (def p : attrs?.properties) {
 			tableString += sortableColumn(title: GrailsNameUtils.getNaturalName(p), property: p)
@@ -41,7 +41,7 @@ class FieldsTagLib {
             }
         }
 
-        tableString += "</td></tr></tbody></table>"
+        tableString += "</td></tr></tbody></table></div></div>"
 
         out << tableString
     }

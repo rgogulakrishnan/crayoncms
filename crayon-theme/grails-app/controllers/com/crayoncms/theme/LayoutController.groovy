@@ -8,9 +8,10 @@ import grails.plugin.springsecurity.annotation.Secured
 class LayoutController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static defaultAction = "browse"
 
     @Secured("ROLE_CRAYONCMS_LAYOUT_VIEW")
-    def index(Integer max) {
+    def browse(Integer max) {
         params.max = Math.min(max ?: 20, 100)
         respond Layout.list(params), model:[layoutCount: Layout.count()]
     }
@@ -44,7 +45,7 @@ class LayoutController {
                 if(params.create == message(code: 'default.button.save.label')) {
                     redirect action: "edit", id: layout.id
                 } else {
-                    redirect action: "index"
+                    redirect action: "browse"
                 }
             }
             '*' { respond layout, [status: CREATED] }
@@ -80,7 +81,7 @@ class LayoutController {
                 if(params.edit == message(code: 'default.button.update.label')) {
                     redirect action: "edit", id: layout.id
                 } else {
-                    redirect action: "index"
+                    redirect action: "browse"
                 }
             }
             '*'{ respond layout, [status: OK] }
@@ -103,7 +104,7 @@ class LayoutController {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'layout.label', default: 'Layout'), layout.name])
                 flash.outcome = "success"
-                redirect action:"index", method:"GET"
+                redirect action:"browse", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
         }
@@ -113,7 +114,7 @@ class LayoutController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'layout.label', default: 'Layout'), params.id])
-                redirect action: "index", method: "GET"
+                redirect action: "browse", method: "GET"
             }
             '*'{ render status: NOT_FOUND }
         }

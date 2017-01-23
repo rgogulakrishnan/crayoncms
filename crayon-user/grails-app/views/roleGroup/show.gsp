@@ -22,19 +22,19 @@
 				<div class="row">
 
                     <div class="col-md-3">
-                        <ul class="">
+                        <ul class="list-group">
                             <g:each in="${allRoleGroups}" var="rolGrp">
                                 <g:if test="${rolGrp.name != 'Anonymous'}">
-                                    <li class="list <g:if test="${rolGrp.name == roleGroup.name}">active</g:if>" >
+                                    <li class="list-group-item <g:if test="${rolGrp.name == roleGroup.name}">active</g:if>" >
                                     <div class="row">
-                                        <div class="col-md-8">
+                                        <div class="col-md-8 col-xs-9">
                                             <g:link action="show" resource="${rolGrp}">${rolGrp.name}</g:link>
                                         </div>
                                         <g:if test="${rolGrp.name != 'Administrator'}">
-                                            <div class="col-md-1">
+                                            <div class="col-md-1 col-xs-1">
                                                 <g:link action="edit" resource="${rolGrp}" data-toggle="modal" data-target=".modal"><i class="fa fa-pencil"></i></g:link>
                                             </div>
-                                            <div class="col-md-1 text-right">
+                                            <div class="col-md-1 col-xs-1">
                                                 <g:form resource="${rolGrp}" method="DELETE">
                                                     <input type="submit" class="fa fa-trash-o" value="&#xf014;" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
                                                 </g:form>

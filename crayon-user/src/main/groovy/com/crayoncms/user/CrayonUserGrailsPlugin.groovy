@@ -30,7 +30,7 @@ Manager users
                 "ROLE_CRAYONCMS_USER_UPDATE": "Manage users",
                 "ROLE_CRAYONCMS_USER_VIEW": "View users",
                 "ROLE_CRAYONCMS_USER_MANAGE_ROLEGROUPS": "Manage groups and roles",
-                "ROLE_CRAYONCMS_USER_UPDATE_PROFILE": "Manage own profile"
+                "ROLE_CRAYONCMS_USER_UPDATE_PROFILE": "Update own profile"
         ]
 	]
 

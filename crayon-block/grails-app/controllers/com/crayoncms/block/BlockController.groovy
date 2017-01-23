@@ -9,9 +9,10 @@ import static org.springframework.http.HttpStatus.*
 class BlockController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static defaultAction = "browse"
 
 	@Secured("ROLE_CRAYONCMS_BLOCK_VIEW")
-    def index(Integer max) {
+    def browse(Integer max) {
         params.max = Math.min(max ?: 20, 100)
         respond Block.list(params), model:[blockCount: Block.count()]
     }
@@ -45,7 +46,7 @@ class BlockController {
                 if(params.create == message(code: 'default.button.save.label')) {
                     redirect action: "edit", id: block.id
                 } else {
-                    redirect action: "index"
+                    redirect action: "browse"
                 }
             }
             '*' { respond block, [status: CREATED] }
@@ -81,7 +82,7 @@ class BlockController {
                 if(params.edit == message(code: 'default.button.update.label')) {
                     redirect action: "edit", id: block.id
                 } else {
-                    redirect action: "index"
+                    redirect action: "browse"
                 }
             }
             '*'{ respond block, [status: OK] }
@@ -104,7 +105,7 @@ class BlockController {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'block.label', default: 'Block'), block.name])
                 flash.outcome = "success"
-                redirect action:"index", method:"GET"
+                redirect action:"browse", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
         }
@@ -114,7 +115,7 @@ class BlockController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'block.label', default: 'Block'), params.id])
-                redirect action: "index", method: "GET"
+                redirect action: "browse", method: "GET"
             }
             '*'{ render status: NOT_FOUND }
         }
