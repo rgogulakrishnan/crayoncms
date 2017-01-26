@@ -27,9 +27,9 @@ class ButtonsTagLib {
         }
 
         if(attrs.modal && attrs.modal == "true") {
-            out << link(class: 'btn btn-default', controller: attrs.cancelController?: controllerName, action: 'index', "data-dismiss": "modal") { message(code: 'default.button.cancel.label') }
+            out << link(class: 'btn btn-default', controller: attrs.cancelController?: controllerName, action: 'browse', "data-dismiss": "modal") { message(code: 'default.button.cancel.label') }
         } else {
-            out << link(class: 'btn btn-default', controller: attrs.cancelController?: controllerName, action: 'index') { message(code: 'default.button.cancel.label') }
+            out << link(class: 'btn btn-default', controller: attrs.cancelController?: controllerName, action: 'browse') { message(code: 'default.button.cancel.label') }
         }
 
         out

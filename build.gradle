@@ -46,6 +46,7 @@ subprojects { Project project ->
 		compile "org.grails.plugins:scaffolding"
 		compile "org.grails.plugins:spring-security-core:3.1.1"
 		compile "org.grails.plugins:ajax-tags:1.0.0"
+		compile 'com.bertramlabs.plugins:selfie:1.1.1'
 		
 		console "org.grails:grails-console"
 		

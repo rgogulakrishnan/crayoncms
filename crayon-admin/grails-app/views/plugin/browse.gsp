@@ -15,7 +15,7 @@
         <div id="list-plugin" class="content scaffold-list" role="main">
 
             <div class="panel panel-default">
-            	<div class="panel-heading"><h3 class="panel-title">My Plugins</h3></div>
+            	<div class="panel-heading"><h3 class="panel-title">Core Plugins</h3></div>
 				<div class="panel-body">
 		  			<table class="table table-hover">
 		            	<thead>
@@ -40,7 +40,7 @@
             
             
             <div class="panel panel-default">
-            	<div class="panel-heading"><h3 class="panel-title">Core Plugins</h3></div>
+            	<div class="panel-heading"><h3 class="panel-title">Grails Plugins</h3></div>
  				<div class="panel-body">
            
 					<table class="table table-hover">

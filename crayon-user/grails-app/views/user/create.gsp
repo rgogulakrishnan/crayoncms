@@ -6,18 +6,14 @@
         <crayoncms:title prefix="${message(code:'default.create.label', args: [entityName])}" />
     </head>
     <body>
-        <a href="#create-user" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-        <div class="nav" role="navigation">
-            <ul>
-                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-            </ul>
-        </div>
-        <div id="create-user" class="content scaffold-create" role="main">
-            <h1><g:message code="default.create.label" args="[entityName]" /></h1>
-            <g:if test="${flash.message}">
-            <div class="message" role="status">${flash.message}</div>
-            </g:if>
+    <content tag="header">
+        <g:message code="default.new.label" args="[entityName]" /></h1>
+    </content>
+    <content tag="right-menu">
+
+    </content>
+
+    <div id="create-user" class="content scaffold-create" role="main">
             <g:hasErrors bean="${this.user}">
             <ul class="errors" role="alert">
                 <g:eachError bean="${this.user}" var="error">
@@ -25,10 +21,13 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
-            <g:form action="save">
-                    <f:all bean="user"/>
+            <g:uploadForm action="save">
+                <f:field bean="user" property="username" />
+                <f:field bean="user" property="email" />
+                <f:field bean="user" property="firstName" />
+                <f:field bean="user" property="lastName" />
                 <crayoncms:adminSaveButtons action="create" />
-            </g:form>
+            </g:uploadForm>
         </div>
     </body>
 </html>

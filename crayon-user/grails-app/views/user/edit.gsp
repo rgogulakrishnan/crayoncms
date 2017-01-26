@@ -23,11 +23,35 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
-            <g:form resource="${this.user}" method="PUT">
-                <g:hiddenField name="version" value="${this.user?.version}" />
-                <f:all bean="user"/>
-                <crayoncms:adminSaveButtons action="edit" ifAllGranted="ROLE_CRAYONCMS_USER_UPDATE" />
-            </g:form>
+            <div class="row">
+                <div class="col-md-3">
+
+                    <g:if test="${!user.profilePicture}">
+                        <div class="profileDefault img-rounded">
+
+                        </div>
+                    </g:if>
+                    <g:else>
+                        <g:img uri="${user.profilePicture?.url('thumb')}" />
+                    </g:else>
+
+                    <br />
+                    <div>Registered since: ${user.registeredOn}</div>
+                </div>
+                <div class="col-md-9">
+
+
+
+                    <g:form resource="${this.user}" method="PUT">
+                        <g:hiddenField name="version" value="${this.user?.version}" />
+                        <f:field bean="user" property="firstName"/>
+                        <f:field bean="user" property="lastName"/>
+                        <f:field bean="user" property="username"/>
+                        <f:field bean="user" property="email"/>
+                        <crayoncms:adminSaveButtons action="edit" ifAllGranted="ROLE_CRAYONCMS_USER_UPDATE" />
+                    </g:form>
+                </div>
+            </div>
         </div>
     </body>
 </html>
