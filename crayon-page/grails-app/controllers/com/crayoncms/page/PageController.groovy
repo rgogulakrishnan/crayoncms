@@ -14,12 +14,12 @@ import grails.plugin.springsecurity.annotation.Secured
 class PageController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-    static defaultAction = "browse"
+
     def pluginManager
     def pageService
 
 	@Secured(["ROLE_CRAYONCMS_PAGE_CREATE", "ROLE_CRAYONCMS_PAGE_EDIT", "ROLE_CRAYONCMS_PAGE_DELETE"])
-    def browse(Integer max) {
+    def index(Integer max) {
         params.max = Math.min(max ?: 20, 100)
         respond Page.list(params), model:[pageCount: Page.count()]
     }
@@ -42,7 +42,7 @@ class PageController {
             }
 
             // Now lets merge bind content with layout and prepare html
-            render view: "/browse", model: [
+            render view: "/index", model: [
                     content: pageService.mergeContentWithLayout(page), title: page.name, bodyCss: page.bodyCss,
                     description: page.description, keywords: page.keywords
             ]
@@ -89,10 +89,10 @@ class PageController {
                 if(params.create == message(code: 'default.button.save.label')) {
                     redirect action: "edit", id: page.id
                 } else {
-                    redirect action: "browse"
+                    redirect action: "index"
                 }
             }
-            '*' { respond page, [status: CREATED, view: "browse"] }
+            '*' { respond page, [status: CREATED, view: "index"] }
         }
     }
 
@@ -125,7 +125,7 @@ class PageController {
                 if(params.edit == message(code: 'default.button.update.label')) {
                     redirect action: "edit", id: page.id
                 } else {
-                    redirect action: "browse"
+                    redirect action: "index"
                 }
             }
             '*'{ respond page, [status: OK] }
@@ -148,7 +148,7 @@ class PageController {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'page.label', default: 'Page'), page.name])
                 flash.outcome = "success"
-                redirect action:"browse", method:"GET"
+                redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
         }

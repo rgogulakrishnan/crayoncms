@@ -10,9 +10,8 @@ import grails.converters.*
 class MenuController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-    static defaultAction = "browse"
 
-    def browse(Integer max) {
+    def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Menu.list(params), model:[menuCount: Menu.count()]
     }
@@ -48,7 +47,7 @@ class MenuController {
                 if(params.create == message(code: 'default.button.save.label')) {
                     redirect action: "edit", id: menu.id
                 } else {
-                    redirect controller: "menuGroup", action: "browse"
+                    redirect controller: "menuGroup", action: "index"
                 }
             }
             '*' { respond menu, [status: CREATED] }
@@ -82,7 +81,7 @@ class MenuController {
                 if(params.edit == message(code: 'default.button.update.label')) {
                     redirect action: "edit", id: menu.id
                 } else {
-                    redirect controller: "menuGroup", action: "browse"
+                    redirect controller: "menuGroup", action: "index"
                 }
             }
             '*'{ respond menu, [status: OK] }
@@ -104,7 +103,7 @@ class MenuController {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'menu.label', default: 'Menu'), menu.name])
                 flash.outcome = "success"
-                redirect controller: "menuGroup", action:"browse"
+                redirect controller: "menuGroup", action:"index"
             }
             '*'{ render status: NO_CONTENT }
         }
@@ -149,7 +148,7 @@ class MenuController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'menu.label', default: 'Menu'), params.id])
-                redirect action: "browse", method: "GET"
+                redirect action: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }
         }

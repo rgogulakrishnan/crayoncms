@@ -9,9 +9,8 @@ import grails.plugin.springsecurity.annotation.Secured
 class RoleGroupController {
 
     static allowedMethods = [save: "POST", addRole: "POST", update: "PUT", delete: "DELETE", removeRole: "POST"]
-    static defaultAction = "browse"
 
-    def browse(Integer max) {
+    def index(Integer max) {
         redirect RoleGroup.findByName("Administrator")
     }
 
@@ -37,7 +36,7 @@ class RoleGroupController {
 
         if (roleGroup.hasErrors()) {
             transactionStatus.setRollbackOnly()
-            respond roleGroup.errors, view:'/roleGroupRole/browse'
+            respond roleGroup.errors, view:'/roleGroupRole/index'
             return
         }
 
@@ -67,7 +66,7 @@ class RoleGroupController {
 
         if (roleGroup.hasErrors()) {
             transactionStatus.setRollbackOnly()
-            respond roleGroup.errors, view:'/roleGroupRole/browse'
+            respond roleGroup.errors, view:'/roleGroupRole/index'
             return
         }
 
@@ -156,7 +155,7 @@ class RoleGroupController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'roleGroup.label', default: 'RoleGroup'), params.id])
-                redirect acontroller: "roleGroupRole", ction: "browse", method: "GET"
+                redirect acontroller: "roleGroupRole", ction: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }
         }

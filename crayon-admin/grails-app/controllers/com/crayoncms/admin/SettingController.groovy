@@ -8,9 +8,7 @@ import grails.plugin.springsecurity.annotation.Secured
 @Secured("ROLE_CRAYONCMS_MANAGE_SETTINGS")
 class SettingController {
 
-    static defaultAction = "browse"
-
-    def browse() {
+    def index() {
         respond Setting.list(params)
     }
 
@@ -35,9 +33,9 @@ class SettingController {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'setting.label', default: 'Setting')])
                 flash.outcome = "success"
-                redirect action: "browse"
+                redirect action: "index"
             }
-            '*' { respond page, [status: CREATED, view: "browse"] }
+            '*' { respond page, [status: CREATED, view: "index"] }
         }
     }
 }

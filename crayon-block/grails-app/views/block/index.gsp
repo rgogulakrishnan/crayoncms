@@ -44,9 +44,9 @@
                         <g:form action="create" method="GET">
                             <f:field bean="block" property="type" />
                             <g:submitButton controller="block" name="create" class="btn btn-primary" value="${message(code: 'default.button.continue.label', default: 'Continue')}" />
-                            <g:link class="btn btn-default" data-dismiss="modal" aria-label="Cancel">
+                            <a class="btn btn-default" data-dismiss="modal" aria-label="Cancel">
                                 <g:message code="default.button.cancel.label" />
-                            </g:link>
+                            </a>
                         </g:form>
                     </div>
                 </div>

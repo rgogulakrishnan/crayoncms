@@ -32,26 +32,26 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Content <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><g:link controller="page" action="browse">Pages</g:link></li>
-                            <li><g:link controller="block" action="browse">Blocks</g:link></li>
+                            <li><a href="/page">Pages</a></li>
+                            <li><a href="/block">Blocks</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Structure <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><g:link controller="layout" action="browse">Layouts</g:link></li>
-                            <li><g:link controller="menuGroup" action="browse">Menu Groups</g:link></li>
+                            <li><a href="/layout">Layouts</a></li>
+                            <li><a href="/menuGroup">Menu Groups</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Users <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><g:link controller="roleGroup" action="browse">Groups & Roles</g:link></li>
-                            <li><g:link controller="user" action="browse">Users</g:link></li>
+                            <li><a href="/roleGroup">Groups & Roles</a></li>
+                            <li><a href="/user">Users</a></li>
                         </ul>
                     </li>
-                    <li><g:link controller="plugin" action="browse">Plugins</g:link></li>
-                    <li><g:link controller="setting" action="browse">Settings</g:link></li>
+                        <li><a href="/plugin">Plugins</a></li>
+                        <li><a href="/setting">Settings</a></li>
                     </sec:ifLoggedIn>
                     
                 </ul>
@@ -63,7 +63,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><sec:username /> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><g:link controller="user" action="myprofile" >My Profile</g:link></li>
-                                <li><g:link controller="logout">Logout</g:link></li>
+                                <li><a href="/logout">Logout</a></li>
                             </ul>
                         </li>
                     </sec:ifLoggedIn>

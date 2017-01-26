@@ -11,13 +11,12 @@ class UserController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE",
                              changepwd: "PUT", changeProfilePic: "POST"]
-    static defaultAction = "browse"
+
     def springSecurityService
     def userService
-    def attachmentConverter
 
     @Secured("ROLE_CRAYONCMS_USER_VIEW")
-    def browse(Integer max) {
+    def index(Integer max) {
         params.max = Math.min(max ?: 20, 100)
         respond User.list(params), model:[userCount: User.count()]
     }
@@ -60,7 +59,7 @@ class UserController {
                     redirect action: "edit", id: user.id
                 } else {
                     flash.message = message(code: 'default.updated.message', args: [message(code: 'user.label', default: 'User'), user.username])
-                    redirect action: "browse"
+                    redirect action: "index"
                 }
             }
             '*' { respond user, [status: CREATED] }
@@ -101,7 +100,7 @@ class UserController {
                     redirect action: "edit", id: user.id
                 } else {
                     flash.message = message(code: 'default.updated.message', args: [message(code: 'user.label', default: 'User'), user.username])
-                    redirect action: "browse"
+                    redirect action: "index"
                 }
             }
             '*'{ respond user, [status: OK] }
@@ -124,7 +123,7 @@ class UserController {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'user.label', default: 'User'), user.username])
                 flash.outcome = "success"
-                redirect action:"browse", method:"GET"
+                redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
         }
@@ -199,7 +198,7 @@ class UserController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), params.id])
-                redirect action: "browse", method: "GET"
+                redirect action: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }
         }

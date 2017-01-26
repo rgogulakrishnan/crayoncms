@@ -6,9 +6,8 @@ import grails.plugin.springsecurity.annotation.Secured
 class PluginController {
 	
 	def pluginManager
-	static defaultAction = "browse"
 
-    def browse() {
+    def index() {
 		def crayonPlugins = []
 		def grailsPlugins = []
 		pluginManager.allPlugins.each { it ->
@@ -34,6 +33,6 @@ class PluginController {
 			
 		}
 
-		render view:"browse", model: [crayonPlugins: crayonPlugins, grailsPlugins: grailsPlugins]
+		render view:"index", model: [crayonPlugins: crayonPlugins, grailsPlugins: grailsPlugins]
 	}
 }
