@@ -13,8 +13,8 @@ class CrayonThemeGrailsPlugin extends Plugin {
 
     // TODO Fill in these fields
     def title = "Themes" // Headline display name of the plugin
-    def author = "Gogula Rajaprabhu"
-    def authorEmail = "rgogulakrishnan@gmail.com"
+    def author = "CrayonCMS Team"
+    def authorEmail = ""
     def description = '''\
 Manage site themes.
 '''

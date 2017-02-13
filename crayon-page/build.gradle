@@ -1,4 +1,6 @@
 dependencies {
     provided project(":crayon-user"),
             project(":crayon-theme")
+
+    compile project(":crayon-core")
 }

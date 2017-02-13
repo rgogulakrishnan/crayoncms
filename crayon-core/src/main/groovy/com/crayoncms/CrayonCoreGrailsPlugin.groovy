@@ -1,8 +1,8 @@
-package com.crayoncms.menu
+package com.crayoncms
 
 import grails.plugins.*
 
-class CrayonMenuGrailsPlugin extends Plugin {
+class CrayonCoreGrailsPlugin extends Plugin {
 
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "3.2.0 > *"
@@ -12,21 +12,20 @@ class CrayonMenuGrailsPlugin extends Plugin {
     ]
 
     // TODO Fill in these fields
-    def title = "Menu" // Headline display name of the plugin
+    def title = "Core" // Headline display name of the plugin
     def author = "CrayonCMS Team"
     def authorEmail = ""
     def description = '''\
-Manage menu and groups
+Core features for the CrayonCMS
 '''
     def profiles = ['web']
 
     // URL to the plugin's documentation
-    def documentation = "http://grails.org/plugin/crayon-menu"
+    def documentation = "http://grails.org/plugin/core"
 
     // Extra (optional) plugin metadata
 	def crayonMeta = [
-		addonType: "plugin",
-		roles: ["ROLE_MANAGE_MENU": "Manage menu", "ROLE_MANAGE_MENUGROUPS": "Manage menu groups"]
+            addonType: "plugin"
 	]
 
     // License: one of 'APACHE', 'GPL2', 'GPL3'
