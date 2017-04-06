@@ -4,7 +4,7 @@ build/
 .classpath
 .project
 .idea
-crayoncms-starter-helios/
+crayon-starter/
 
 # Ignore Gradle GUI config
 gradle-app.setting
