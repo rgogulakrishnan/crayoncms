@@ -25,7 +25,11 @@ Core features for the CrayonCMS
 
     // Extra (optional) plugin metadata
 	def crayonMeta = [
-            addonType: "plugin"
+            addonType: "plugin",
+            roles: [
+                    "ROLE_CRAYONCMS_MANAGE_PLUGINS": "Manage plugins",
+                    "ROLE_CRAYONCMS_MANAGE_SETTINGS": "Manage site settings"
+            ]
 	]
 
     // License: one of 'APACHE', 'GPL2', 'GPL3'
