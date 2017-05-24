@@ -1,0 +1,14 @@
+dependencies { 
+
+}
+
+grails {
+	plugins {
+		compile project(":crayon-core")
+		compile project(":crayon-page")
+		compile project(":crayon-block")
+		compile project(":crayon-menu")
+		compile project(":crayon-user")
+        compile project(":crayon-theme")
+	}
+}
