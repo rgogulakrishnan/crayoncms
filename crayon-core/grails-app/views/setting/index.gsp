@@ -17,7 +17,9 @@
             <g:form class="" name="settingsForm" action="save" method="PUT">
                 <g:each var="setting" in="${settingList}">
                     <div class="form-group">
-                        <label for="${setting.name}">${setting.name}</label>
+                        <g:if test="${setting.type != SettingType.ADMIN_FIELD}">
+                            <label for="${setting.name}">${setting.name}</label>
+                        </g:if>
                         <g:if test="${setting.type == SettingType.TEXT}">
                             <g:textField class="form-control" name="${setting.name}" value="${setting.value}" />
                         </g:if>

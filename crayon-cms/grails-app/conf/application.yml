@@ -65,6 +65,9 @@ grails:
             maxsize: 1000
     controllers:
         defaultScope: singleton
+        upload:
+            maxFileSize: 10485760
+            maxRequestSize: 10485760
     converters:
         encoding: UTF-8
     views:
@@ -78,19 +81,6 @@ grails:
                 scriptlets: html
                 taglib: none
                 staticparts: none
-    plugin:
-        selfie:
-            storage:
-                path: ":class/:id/:propertyName/"
-                bucket: 'uploads'
-                providerOptions:
-                    provider: 'local'
-                    basePath: 'storage'
-                    baseUrl: 'http://localhost:8080/storage'
-            karman:
-                serveLocalStorage: true
-                serveLocalMapping: 'storage'
-                storagePath: './storage'
 endpoints:
     jmx:
         unique-names: true

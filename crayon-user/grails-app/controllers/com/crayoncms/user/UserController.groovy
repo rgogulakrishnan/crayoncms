@@ -1,7 +1,5 @@
 package com.crayoncms.user
 
-import org.apache.tomcat.util.http.fileupload.FileUploadBase
-
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
@@ -131,25 +129,32 @@ class UserController {
 
     @Secured("ROLE_CRAYONCMS_USER_UPDATE_PROFILE")
     def myprofile() {
-
         def user = springSecurityService.getCurrentUser()
         render view: "myprofile", model: [user: user]
     }
 
     @Secured("ROLE_CRAYONCMS_USER_UPDATE_PROFILE")
-    def changeProfilePic() {
+    def changeProfilePic(ProfilePictureCommand cmd) {
+        if (cmd == null) {
+            notFound()
+            return
+        }
 
-        try {
+        if (cmd.hasErrors()) {
+            respond(cmd.errors, model: [user: User.get(cmd.id)], view: 'myprofile')
+            redirect action: "myprofile"
+            return
+        }
 
-            def user = springSecurityService.currentUser
-            bindData(user,params,[include:['profilePicture']])
+        User user = userService.uploadProfilePicture(cmd)
 
-            user.save flush:true
+        if (user == null) {
+            notFound()
+            return
+        }
 
-        } catch(FileUploadBase.SizeLimitExceededException se) {
-            transactionStatus.setRollbackOnly()
-            flash.message = message(code: 'error.profilepic.size.exceeded')
-            flash.outcome = "danger"
+        if (user.hasErrors()) {
+            respond(user.errors, model: [user: user], view: 'myprofile')
             return
         }
 
@@ -161,7 +166,17 @@ class UserController {
             }
             '*'{ respond user, [status: OK] }
         }
+    }
 
+    @Secured("ROLE_CRAYONCMS_USER_UPDATE_PROFILE")
+    @Transactional(readOnly = true)
+    def profilePicture(User user) {
+        if (user == null || user.profilePicture == null) {
+            transactionStatus.setRollbackOnly()
+            notFound()
+            return
+        }
+        render file: user.profilePicture, contentType: user.profilePictureContentType
     }
 
     @Secured("ROLE_CRAYONCMS_USER_UPDATE_PROFILE")
