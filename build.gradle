@@ -5,8 +5,8 @@ buildscript {
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
-        classpath "com.bertramlabs.plugins:asset-pipeline-gradle:2.11.6"
-		classpath "org.grails.plugins:hibernate5:6.0.7"
+        classpath "com.bertramlabs.plugins:asset-pipeline-gradle:2.14.1"
+		classpath "org.grails.plugins:hibernate5:${gormVersion-".RELEASE"}"
     }
 }
 
@@ -64,7 +64,7 @@ subprojects { Project project ->
 			compile "org.grails.plugins:scaffolding"
 			console "org.grails:grails-console"
 			
-			runtime "com.bertramlabs.plugins:asset-pipeline-grails:2.11.6"
+			runtime "com.bertramlabs.plugins:asset-pipeline-grails:2.14.1"
 			testCompile "org.grails:grails-plugin-testing"
 			testCompile "org.grails.plugins:geb"
 			testRuntime "org.seleniumhq.selenium:selenium-htmlunit-driver:2.47.1"
@@ -77,8 +77,8 @@ subprojects { Project project ->
 		if ( isGrailsApp ) {
 			dependencies {
 				compile "org.grails.plugins:hibernate5"
-				compile "org.hibernate:hibernate-core:5.1.2.Final"
-				compile "org.hibernate:hibernate-ehcache:5.1.2.Final"
+				compile "org.hibernate:hibernate-core:5.1.3.Final"
+				compile "org.hibernate:hibernate-ehcache:5.1.3.Final"
 				profile "org.grails.profiles:web"
 				
 				runtime "com.h2database:h2"
@@ -96,7 +96,8 @@ subprojects { Project project ->
 		}
 			
 		bootRun {
-			jvmArgs = ['-Dspring.output.ansi.enabled=always']
+			jvmArgs('-Dspring.output.ansi.enabled=always')
+			addResources = true
 		}
 	
 		if ( isGrailsPlugin ) {
