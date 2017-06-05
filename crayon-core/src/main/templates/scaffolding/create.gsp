@@ -21,7 +21,7 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
-            <g:form action="save">
+            <g:form resource="\${this.${propertyName}}">
                 <f:all bean="${propertyName}"/>
                 <crayoncms:adminSaveButtons action="create" ifAllGranted="" />
             </g:form>

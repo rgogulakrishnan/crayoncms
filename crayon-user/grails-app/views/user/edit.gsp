@@ -40,8 +40,6 @@
                 </div>
                 <div class="col-md-9">
 
-
-
                     <g:form resource="${this.user}" method="PUT">
                         <g:hiddenField name="version" value="${this.user?.version}" />
                         <f:field bean="user" property="firstName"/>

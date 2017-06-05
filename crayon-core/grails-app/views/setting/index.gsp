@@ -14,7 +14,7 @@
 
         </content>
         <div id="list-plugin" class="content scaffold-list" role="main">
-            <g:form class="" name="settingsForm" action="save" method="PUT">
+            <g:form class="" name="settingsForm" relativeUri="setting/save" method="PUT">
                 <g:each var="setting" in="${settingList}">
                     <div class="form-group">
                         <g:if test="${setting.type != SettingType.ADMIN_FIELD}">

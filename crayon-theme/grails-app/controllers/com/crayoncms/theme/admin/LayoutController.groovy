@@ -1,12 +1,15 @@
-package com.crayoncms.theme
+package com.crayoncms.theme.admin
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
 
+import com.crayoncms.theme.Layout
+
 @Transactional(readOnly = true)
 class LayoutController {
 
+	static namespace = "admin"
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     @Secured("ROLE_CRAYONCMS_LAYOUT_VIEW")
@@ -42,9 +45,9 @@ class LayoutController {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'layout.label', default: 'Layout'), layout.name])
                 flash.outcome = "success"
                 if(params.create == message(code: 'default.button.save.label')) {
-                    redirect action: "edit", id: layout.id
+                    redirect action: "edit", id: layout.id, method: "GET"
                 } else {
-                    redirect action: "index"
+                    redirect action: "index", method: "GET"
                 }
             }
             '*' { respond layout, [status: CREATED] }
@@ -78,9 +81,9 @@ class LayoutController {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'layout.label', default: 'Layout'), layout.name])
                 flash.outcome = "success"
                 if(params.edit == message(code: 'default.button.update.label')) {
-                    redirect action: "edit", id: layout.id
+                    redirect action: "edit", id: layout.id, method: "GET"
                 } else {
-                    redirect action: "index"
+                    redirect action: "index", method: "GET"
                 }
             }
             '*'{ respond layout, [status: OK] }

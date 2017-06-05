@@ -12,10 +12,10 @@ class MenuTagLib {
 
 	def springSecurityService
 
-	def editMenuLink = '''<a href='/menu/edit/ID' data-toggle="modal" data-target=".modal">LINK_NAME</a>'''
+	def editMenuLink = '''<a href='menu/ID/edit' data-toggle="modal" data-target=".modal">LINK_NAME</a>'''
 	def viewOnlyMenuLink = '''LINK_NAME'''
 
-	def deleteFormOpen = '''<form action="/menu/delete/ID" method="POST">'''
+	def deleteFormOpen = '''<form action="/admin/menu/ID" method="POST">'''
 	def deleteFormClose = "</form>"
 
 	def deleteLink = '''
@@ -63,7 +63,7 @@ class MenuTagLib {
 
 			if(liStringAppend) {
 				menu += liString.replace("LINK_CLASS", it.cssClass).replace("LINK_HREF", it.menuTypeValue)
-						.replace("LINK_NAME", it.name).replace("LINK_TARGET", (it.targetBlank ? "_blank" : ""))
+						.replace("LINK_NAME", it.name).replace("LINK_TARGET", (it.openInNewTab == 'Yes' ? "_blank" : ""))
 				def children = Menu.findAllByMenuGroupAndParent(group, it.id, [sort: 'position'])
 				if (children) {
 					menu += "<ul>"

@@ -21,7 +21,7 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
-            <g:form action="save">
+            <g:form resource="${this.block}">
                 <f:field bean="block" property="name" />
                 <f:field bean="block" property="slug" />
                 <f:field bean="block" property="type" />

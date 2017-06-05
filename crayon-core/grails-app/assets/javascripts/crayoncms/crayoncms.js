@@ -92,7 +92,7 @@ if (typeof jQuery !== 'undefined') {
 					data: 'menuOrder=' + menuOrder, 
 					dataType: 'json',
 					type: 'POST',
-					url: "/menu/order",
+					url: "/admin/menu/order",
 					success: function(data, text) {
 						console.log(data.retMess);
 						console.log(text);

@@ -1,13 +1,18 @@
-package com.crayoncms.user
+package com.crayoncms.user.admin
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
 
+import com.crayoncms.user.Role
+import com.crayoncms.user.RoleGroup
+import com.crayoncms.user.RoleGroupRole
+
 @Secured("ROLE_CRAYONCMS_USER_MANAGE_ROLEGROUPS")
 @Transactional(readOnly = true)
 class RoleGroupController {
 
+	static namespace = "admin"
     static allowedMethods = [save: "POST", addRole: "POST", update: "PUT", delete: "DELETE", removeRole: "POST"]
 
     def index(Integer max) {

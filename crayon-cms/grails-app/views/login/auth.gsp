@@ -5,10 +5,10 @@
 </head>
 <body>
 
-    <content tag="section-title">Login</content>
+    <content tag="section-title"><center>Login</center></content>
 
     <g:if test="${flash.message}">
-        <div id="notifyMess" class="alert alert-${flash.outcome} alert-dismissible" role="status">
+        <div id="notifyMess" class="alert alert-danger alert-dismissible" role="status">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>

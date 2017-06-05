@@ -17,7 +17,13 @@
         </g:hasErrors>
         <g:form resource="${this.menu}" method="PUT">
             <g:hiddenField name="version" value="${this.menu?.version}" />
-            <f:all bean="menu"/>
+            <f:field bean="menu" property="name" />
+            <f:field bean="menu" property="menuType" />
+            <f:field bean="menu" property="menuTypeValue" />
+            <f:field bean="menu" property="menuGroup" />
+            <f:field bean="menu" property="openInNewTab" />
+            <f:field bean="menu" property="access" />
+            <f:field bean="menu" property="cssClass" />
             <crayoncms:adminSaveButtons cancelController="menuGroup" action="edit" ifAllGranted="ROLE_MANAGE_MENU" modal="true" />
         </g:form>
     </div>

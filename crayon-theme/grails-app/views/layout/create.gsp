@@ -21,7 +21,7 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
-            <g:form action="save">
+            <g:form resource="${this.layout}">
                 <f:field bean="layout" property="name" />
                 <f:field bean="layout" property="slug" />
                 <div class="form-group">

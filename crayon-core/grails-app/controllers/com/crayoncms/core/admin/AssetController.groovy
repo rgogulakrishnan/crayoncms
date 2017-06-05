@@ -1,4 +1,4 @@
-package com.crayoncms.core
+package com.crayoncms.core.admin
 
 import grails.converters.JSON
 import grails.plugin.springsecurity.annotation.Secured
@@ -9,6 +9,8 @@ import org.apache.commons.fileupload.disk.*
 
 @Secured("ROLE_ADMIN")
 class AssetController {
+
+	static namespace = "admin"
 
     def upload() {
 		

@@ -7,7 +7,7 @@
 	<h4 class="modal-title" id="myLargeModalLabel"><g:message code="default.new.label" args="[entityName]" /></h4> 
 </div> 
 <div class="modal-body">	
-	<g:form action="save">
+	<g:form resource="${roleGroup}">
 		<f:field bean="roleGroup" property="name" />
 		<crayoncms:adminSaveButtons action="create" modal="true" />
 	</g:form>

@@ -1,13 +1,17 @@
-package com.crayoncms.core
+package com.crayoncms.core.admin
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
 
+import com.crayoncms.core.Setting
+
 @Transactional(readOnly = true)
 @Secured("ROLE_CRAYONCMS_MANAGE_SETTINGS")
 class SettingController {
 
+	static namespace = "admin"
+	
     def index() {
         respond Setting.list(params)
     }

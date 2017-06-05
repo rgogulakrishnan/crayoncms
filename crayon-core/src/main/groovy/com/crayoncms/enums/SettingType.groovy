@@ -9,7 +9,8 @@ enum SettingType {
     DROPDOWN("Dropdown"),
     DROPDOWN_MULTI("Dropdown Multi"),
     PASSOWRD("Password"),
-    TIME_ZONE_SELECT("Time Zone Select")
+    TIME_ZONE_SELECT("Time Zone Select"),
+    ADMIN_FIELD("Admin Field")
 
     final String type
 

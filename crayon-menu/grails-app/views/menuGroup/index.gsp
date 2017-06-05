@@ -14,7 +14,7 @@
        		    <i class="fa fa-bars"></i>
        		    <span class="hidden-xs"><g:message code="default.new.label" args="[entityName]"/></span>
        		</sec:link>
-            <sec:link class="btn btn-primary" controller="menu" action="create" expression="hasRole('ROLE_MANAGE_MENU')" data-toggle="modal" data-target=".modal">
+            <sec:link class="btn btn-primary" controller="menu" action="create" namespace="admin" expression="hasRole('ROLE_MANAGE_MENU')" data-toggle="modal" data-target=".modal">
                <i class="fa fa-file-text"></i>
                <span class="hidden-xs"><g:message code="default.new.label" args="['Menu']" /></span>
             </sec:link>

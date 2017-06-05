@@ -26,7 +26,9 @@
             </g:hasErrors>
             <g:form resource="${this.layout}" method="PUT">
                 <g:hiddenField name="version" value="${this.layout?.version}" />
-                <f:all bean="layout"/>
+                <f:field bean="layout" property="name"/>
+                <f:field bean="layout" property="slug"/>
+                <f:field bean="layout" property="code"/>
                 <crayoncms:adminSaveButtons action="edit" ifAllGranted="ROLE_CRAYONCMS_LAYOUT_MANAGE" />
             </g:form>
         </div>

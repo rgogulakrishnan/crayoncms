@@ -20,10 +20,10 @@ class Setting {
         description blank: true, maxSize: 100, nullable: true
         value blank: false, maxSize: 100
         defaultValue blank: true, nullable: true
-        type blank: false
+        type [:]
         options blank: true, maxSize: 512, nullable: true
         section blank: false, maxSize: 50
-        mandatory blank: false
+        mandatory [:]
     }
 
     static mapping = {

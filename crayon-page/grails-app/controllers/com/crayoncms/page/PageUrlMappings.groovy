@@ -1,11 +1,12 @@
 package com.crayoncms.page
 
-class CrayonPageUrlMappings {
+class PageUrlMappings {
 
     static mappings = {
-        
-		"/asset/upload" controller: "asset", action: "upload"
-		
+
+        "/admin/page" resources: "page", namespace: "admin"
+
+        "/page/?**" controller: "page", action:"show"
 		"/$slug**?" controller: "page", action:"show"
         "/" controller: "page", action:"show"
 

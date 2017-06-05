@@ -20,7 +20,7 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
-            <g:form action="save">
+            <g:form resource="${this.page}">
             	<div class="row">
             		<div class="col-md-9">
             			<f:field bean="page" property="name" />

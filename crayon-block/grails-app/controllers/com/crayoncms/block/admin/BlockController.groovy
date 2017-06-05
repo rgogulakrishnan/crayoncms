@@ -1,13 +1,15 @@
-package com.crayoncms.block
+package com.crayoncms.block.admin
 
 import grails.plugin.springsecurity.annotation.Secured
 import grails.transaction.Transactional
 
 import static org.springframework.http.HttpStatus.*
+import com.crayoncms.block.Block
 
 @Transactional(readOnly = true)
 class BlockController {
 
+    static namespace = "admin"
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
 	@Secured("ROLE_CRAYONCMS_BLOCK_VIEW")
@@ -43,9 +45,9 @@ class BlockController {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'block.label', default: 'Block'), block.name])
                 flash.outcome = "success"
                 if(params.create == message(code: 'default.button.save.label')) {
-                    redirect action: "edit", id: block.id
+                    redirect action: "edit", id: block.id, method: "GET"
                 } else {
-                    redirect action: "index"
+                    redirect action: "index", method: "GET"
                 }
             }
             '*' { respond block, [status: CREATED] }
@@ -79,9 +81,9 @@ class BlockController {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'block.label', default: 'Block'), block.name])
                 flash.outcome = "success"
                 if(params.edit == message(code: 'default.button.update.label')) {
-                    redirect action: "edit", id: block.id
+                    redirect action: "edit", id: block.id, method: "GET"
                 } else {
-                    redirect action: "index"
+                    redirect action: "index", method: "GET"
                 }
             }
             '*'{ respond block, [status: OK] }

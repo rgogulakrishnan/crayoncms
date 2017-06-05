@@ -15,8 +15,15 @@
                 </g:eachError>
             </ul>
         </g:hasErrors>
-        <g:form action="save">
-            <f:all bean="menu"/>
+
+        <g:form resource="${this.menu}">
+            <f:field bean="menu" property="name" />
+            <f:field bean="menu" property="menuType" />
+            <f:field bean="menu" property="menuTypeValue" />
+            <f:field bean="menu" property="menuGroup" />
+            <f:field bean="menu" property="openInNewTab" />
+            <f:field bean="menu" property="access" />
+            <f:field bean="menu" property="cssClass" />
             <crayoncms:adminSaveButtons cancelController="menuGroup" action="create" modal="true" />
         </g:form>
     </div>

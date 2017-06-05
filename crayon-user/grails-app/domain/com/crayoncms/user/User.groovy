@@ -54,14 +54,14 @@ class User implements Serializable {
 		lastName nullable: true, maxSize: 50
 		email blank: false, unique: true, email: true
 		password blank: true, nullable: true, password: true, display: false, minSize: 8
-		enabled blank: false
+		enabled [:]
 		accountExpired display: false
 		passwordExpired display: false
 		accountLocked display: false
 		profilePicture nullable: true
 		profilePictureContentType nullable: true
-		registeredOn blank: false, nullable: true
-		lastLogin blank: false, nullable: true
+		registeredOn nullable: true
+		lastLogin nullable: true
 	}
 
 	static mapping = {

@@ -29,29 +29,30 @@
             <div class="navbar-collapse collapse" aria-expanded="false">
                 <ul class="nav navbar-nav">
                     <sec:ifLoggedIn>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Content <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/page">Pages</a></li>
-                            <li><a href="/block">Blocks</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Structure <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/layout">Layouts</a></li>
-                            <li><a href="/menuGroup">Menu Groups</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Users <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/roleGroup">Groups & Roles</a></li>
-                            <li><a href="/user">Users</a></li>
-                        </ul>
-                    </li>
-                        <li><a href="/plugin">Plugins</a></li>
-                        <li><a href="/setting">Settings</a></li>
+                        <li><a href="/admin/dashboard">Dashboard</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Content <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/admin/page">Pages</a></li>
+                                <li><a href="/admin/block">Blocks</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Structure <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/admin/layout">Layouts</a></li>
+                                <li><a href="/admin/menuGroup">Menu Groups</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Users <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/admin/roleGroup">Groups & Roles</a></li>
+                                <li><a href="/admin/user">Users</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/admin/plugin">Plugins</a></li>
+                        <li><a href="/admin/setting">Settings</a></li>
                     </sec:ifLoggedIn>
                     
                 </ul>

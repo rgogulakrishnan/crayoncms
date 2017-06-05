@@ -6,8 +6,8 @@
 	</button> 
 	<h4 class="modal-title" id="myLargeModalLabel"><g:message code="default.new.label" args="[entityName]" /></h4> 
 </div> 
-<div class="modal-body">	
-	<g:form action="save">
+<div class="modal-body">
+	<g:form resource="${menuGroup}">
 		<f:field bean="menuGroup" property="name" />
 		<crayoncms:adminSaveButtons action="create" modal="true" />
 	</g:form>

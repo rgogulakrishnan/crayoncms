@@ -1,14 +1,16 @@
-package com.crayoncms.menu
+package com.crayoncms.menu.admin
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
 import grails.converters.*
+import com.crayoncms.menu.Menu
 
 @Secured("ROLE_MANAGE_MENU")
 @Transactional(readOnly = true)
 class MenuController {
 
+	static namespace = "admin"
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
@@ -44,11 +46,7 @@ class MenuController {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'menu.label', default: 'Menu'), menu.name])
                 flash.outcome = "success"
-                if(params.create == message(code: 'default.button.save.label')) {
-                    redirect action: "edit", id: menu.id
-                } else {
-                    redirect controller: "menuGroup", action: "index"
-                }
+                redirect controller: "menuGroup", action: "index", namespace: "admin", method:"GET"
             }
             '*' { respond menu, [status: CREATED] }
         }
@@ -81,7 +79,7 @@ class MenuController {
                 if(params.edit == message(code: 'default.button.update.label')) {
                     redirect action: "edit", id: menu.id
                 } else {
-                    redirect controller: "menuGroup", action: "index"
+                    redirect controller: "menuGroup", action: "index", namespace: "admin", method:"GET"
                 }
             }
             '*'{ respond menu, [status: OK] }
@@ -103,7 +101,7 @@ class MenuController {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'menu.label', default: 'Menu'), menu.name])
                 flash.outcome = "success"
-                redirect controller: "menuGroup", action:"index"
+                redirect controller: "menuGroup", action:"index", namespace: "admin", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
         }

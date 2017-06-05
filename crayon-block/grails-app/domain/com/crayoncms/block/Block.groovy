@@ -14,7 +14,7 @@ class Block {
     static constraints = {
         name maxSize: 20, nullable: false
         slug maxSize:30, unique: true, nullable: false
-        type blank: false
+        type [:]
         content blank: false, widget: 'textarea'
     }
 

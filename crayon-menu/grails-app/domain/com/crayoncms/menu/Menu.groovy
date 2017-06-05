@@ -2,8 +2,6 @@ package com.crayoncms.menu
 
 import com.crayoncms.menu.enums.MenuType
 
-import groovy.transform.ToString
-
 class Menu {
 
 	String name
@@ -12,7 +10,7 @@ class Menu {
 	MenuGroup menuGroup
 	int position = 1
 	int parent = 0
-	boolean targetBlank = false
+	String openInNewTab
 	String access
 	String cssClass
 	Date dateCreated
@@ -22,13 +20,14 @@ class Menu {
 	
     static constraints = {
 		name maxSize: 50, blank: false
-		menuType blank: false
+		menuType [:]
 		menuTypeValue blank: false, maxSize: 70
 		menuGroup [:]
 		position display: false
 		parent display: false
-		targetBlank [:]
+		openInNewTab inList: ['Yes', 'No']
 		access blank: true
 		cssClass maxSize:20, blank: true
     }
+
 }

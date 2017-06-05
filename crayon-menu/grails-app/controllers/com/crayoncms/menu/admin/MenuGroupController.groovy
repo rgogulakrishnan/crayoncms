@@ -1,13 +1,15 @@
-package com.crayoncms.menu
+package com.crayoncms.menu.admin
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
+import com.crayoncms.menu.MenuGroup
 
 @Secured("ROLE_MANAGE_MENUGROUPS")
 @Transactional(readOnly = true)
 class MenuGroupController {
 
+	static namespace = "admin"
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
@@ -40,7 +42,7 @@ class MenuGroupController {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'menuGroup.label', default: 'Menu Group'), menuGroup.name])
                 flash.outcome = "success"
-                redirect action: "index"
+                redirect action:"index", method:"GET"
             }
             '*' { respond menuGroup, [status: CREATED] }
         }
@@ -70,7 +72,7 @@ class MenuGroupController {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'menuGroup.label', default: 'Menu Group'), menuGroup.name])
                 flash.outcome = "success"
-                redirect action: "index"
+                redirect action:"index", method:"GET"
             }
             '*'{ respond menuGroup, [status: OK] }
         }

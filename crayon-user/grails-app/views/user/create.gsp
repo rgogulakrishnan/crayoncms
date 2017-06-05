@@ -21,7 +21,7 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
-            <g:uploadForm action="save">
+            <g:uploadForm resource="${user}">
                 <f:field bean="user" property="username" />
                 <f:field bean="user" property="email" />
                 <f:field bean="user" property="firstName" />

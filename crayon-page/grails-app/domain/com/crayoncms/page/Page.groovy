@@ -21,11 +21,11 @@ class Page {
     static constraints = {
 		name maxSize: 160, blank: false
 		slug maxSize: 170, unique: true, blank: false
-		layout nullable: false, blank: false
+		layout [:]
 		content widget: 'textarea', nullable: true, blank: true
 		description maxSize: 250, blank: true, widget: 'textarea'
 		keywords maxSize: 200, blank: true
-		roleGroup nullable: false, blank: false
+		roleGroup [:]
 		bodyCss blank: true, maxSize: 50
     }
 	

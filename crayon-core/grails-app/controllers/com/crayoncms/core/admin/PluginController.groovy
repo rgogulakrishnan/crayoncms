@@ -1,9 +1,11 @@
-package com.crayoncms.core
+package com.crayoncms.core.admin
 
 import grails.plugin.springsecurity.annotation.Secured
 
 @Secured("ROLE_CRAYONCMS_MANAGE_PLUGINS")
 class PluginController {
+	
+	static namespace = "admin"
 	
 	def pluginManager
 

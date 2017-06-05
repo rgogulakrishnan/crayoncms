@@ -1,12 +1,16 @@
-package com.crayoncms.user
+package com.crayoncms.user.admin
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
 
+import com.crayoncms.user.User
+import com.crayoncms.user.ProfilePictureCommand
+
 @Transactional(readOnly = true)
 class UserController {
 
+	static namespace = "admin"
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE",
                              changepwd: "PUT", changeProfilePic: "POST"]
 
@@ -54,10 +58,10 @@ class UserController {
                 flash.outcome = "success"
                 flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), user.username])
                 if(params.create == message(code: 'default.button.save.label')) {
-                    redirect action: "edit", id: user.id
+                    redirect action: "edit", id: user.id, method: "GET"
                 } else {
                     flash.message = message(code: 'default.updated.message', args: [message(code: 'user.label', default: 'User'), user.username])
-                    redirect action: "index"
+                    redirect action: "index", method: "GET"
                 }
             }
             '*' { respond user, [status: CREATED] }
@@ -94,11 +98,11 @@ class UserController {
                     flash.message = message(code: 'success.field.changed', args: [message(code: 'profile.label')])
                     redirect action: "myprofile"
                 } else if(params.edit == message(code: 'default.button.update.label')) {
-                    flash.message = message(code: 'default.updated.message', args: [message(code: 'user.label', default: 'User'), user.name])
-                    redirect action: "edit", id: user.id
+                    flash.message = message(code: 'default.updated.message', args: [message(code: 'user.label', default: 'User'), user.username])
+                    redirect action: "edit", id: user.id, method: "GET"
                 } else {
                     flash.message = message(code: 'default.updated.message', args: [message(code: 'user.label', default: 'User'), user.username])
-                    redirect action: "index"
+                    redirect action: "index", method: "GET"
                 }
             }
             '*'{ respond user, [status: OK] }

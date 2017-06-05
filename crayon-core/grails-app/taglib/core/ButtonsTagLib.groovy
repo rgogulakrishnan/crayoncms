@@ -29,9 +29,9 @@ class ButtonsTagLib {
         def cancelController = attrs.cancelController?: controllerName
 
         if(attrs.modal && attrs.modal == "true") {
-            out << '<a href="' + cancelController + '" class="btn btn-default" data-dismiss="modal">' + message(code: 'default.button.cancel.label') + '</a>'
+            out << '<a href="" class="btn btn-default" data-dismiss="modal">' + message(code: 'default.button.cancel.label') + '</a>'
         } else {
-            out << '<a href="/' + cancelController + '" class="btn btn-default">' + message(code: 'default.button.cancel.label') + '</a>'
+            out << '<a href="/admin/' + cancelController + '" class="btn btn-default">' + message(code: 'default.button.cancel.label') + '</a>'
         }
 
         out
