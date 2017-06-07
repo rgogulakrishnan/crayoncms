@@ -40,7 +40,7 @@
                     	<h4 class="modal-title" id="myLargeModalLabel"><g:message code="default.new.label" args="['Block']" /></h4>
                     </div>
                     <div class="modal-body">
-                        <g:set var="block" value="${new com.crayoncms.block.Block()}" />
+                        <g:set var="block" value="${new com.crayoncms.Block()}" />
                         <g:form action="create" method="GET">
                             <f:field bean="block" property="type" />
                             <g:submitButton controller="block" name="create" class="btn btn-primary" value="${message(code: 'default.button.continue.label', default: 'Continue')}" />

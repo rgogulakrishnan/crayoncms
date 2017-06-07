@@ -1,20 +1,21 @@
 package com.crayoncms
 
-import com.crayoncms.block.Block
+import com.crayoncms.Block
 import com.crayoncms.Setting
-import com.crayoncms.theme.Layout
-import com.crayoncms.menu.Menu
-import com.crayoncms.menu.MenuGroup
-import com.crayoncms.page.Page
-import com.crayoncms.menu.enums.MenuType
+import com.crayoncms.Layout
+import com.crayoncms.Menu
+import com.crayoncms.MenuGroup
+import com.crayoncms.Page
+import com.crayoncms.enums.MenuType
 import com.crayoncms.enums.PageStatus
-import com.crayoncms.block.enums.BlockType
+import com.crayoncms.enums.BlockType
 import com.crayoncms.enums.SettingType
 import com.crayoncms.user.Role
 import com.crayoncms.user.RoleGroup
 import com.crayoncms.user.RoleGroupRole
 import com.crayoncms.user.User
 import com.crayoncms.user.UserRoleGroup
+
 import grails.plugins.GrailsPluginManager
 
 class BootStrap {

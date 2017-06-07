@@ -48,7 +48,6 @@
                                 <li><a href="/admin/plugin">Plugins</a></li>
                             </ul>
                         </li>
-                        <li><a href="/admin/setting">Settings</a></li>
                     </sec:ifLoggedIn>
                     
                 </ul>
@@ -64,6 +63,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><g:link controller="user" namespace="admin" action="myprofile" >My Profile</g:link></li>
+                                <li><a href="/admin/setting">Settings</a></li>
                                 <li><a href="/logout">Logout</a></li>
                             </ul>
                         </li>

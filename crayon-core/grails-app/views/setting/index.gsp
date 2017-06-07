@@ -1,4 +1,4 @@
-<%@ page import="com.crayoncms.core.enums.SettingType" %>
+<%@ page import="com.crayoncms.enums.SettingType" %>
 <!DOCTYPE html>
 <html>
     <head>

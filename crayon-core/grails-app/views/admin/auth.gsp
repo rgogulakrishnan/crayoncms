@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <meta name="layout" content="crayoncms_installer" />
+    <meta name="layout" content="crayoncms_not_loggedin" />
     <title>CrayonCMS &raquo; Login</title>
 </head>
 <body>
