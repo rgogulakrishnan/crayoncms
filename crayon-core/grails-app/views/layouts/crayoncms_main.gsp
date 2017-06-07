@@ -1,16 +1,7 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" xmlns:g="http://www.w3.org/1999/html">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>
-        <g:layoutTitle default="CrayonCMS"/>
-    </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<asset:link rel="shortcut icon" href="crayoncms/favicon.ico" type="image/x-icon"/>
-	<link href="https://fonts.googleapis.com/css?family=Raleway|Open+Sans" rel="stylesheet">
-    <asset:stylesheet src="crayoncms/crayoncms.css"/>
-
+    <g:render template="/templates/admin_meta" />
     <g:layoutHead/>
 </head>
 <body>
@@ -51,7 +42,12 @@
                                 <li><a href="/admin/user">Users</a></li>
                             </ul>
                         </li>
-                        <li><a href="/admin/plugin">Plugins</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extensions <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/admin/plugin">Plugins</a></li>
+                            </ul>
+                        </li>
                         <li><a href="/admin/setting">Settings</a></li>
                     </sec:ifLoggedIn>
                     
@@ -61,9 +57,13 @@
                     <sec:ifLoggedIn>
                         <li class="right"><a href="/" target="_blank">View Site</a></li>
                         <li class="right dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><sec:username /> <span class="caret"></span></a>
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <crayoncms:profilePicture width="23px" height="23px" />
+                                <sec:username /> <span class="caret"></span>
+                            </a>
                             <ul class="dropdown-menu">
-                                <li><g:link controller="user" action="myprofile" >My Profile</g:link></li>
+                                <li><g:link controller="user" namespace="admin" action="myprofile" >My Profile</g:link></li>
                                 <li><a href="/logout">Logout</a></li>
                             </ul>
                         </li>
@@ -99,7 +99,7 @@
         <footer class="navbar-bottom" role="contentinfo">
             <hr />
             <div class="row">
-                <div class="col-xs-12">&copy 2017 CrayonCMS - version ${applicationContext.getBean('pluginManager')?.getGrailsPlugin("crayon-core")?.version} <span class="hidden-xs"> / Made with <i class="fa fa-heart"></i> by Gogula Rajaprabhu</span></div>
+                <div class="col-xs-12">&copy 2017 CrayonCMS - version <g:meta name="info.app.version"/> <span class="hidden-xs"> / Made with <i class="fa fa-heart"></i> by Gogula Rajaprabhu</span></div>
                 <div class="col-xs-12 hidden-sm hidden-md hidden-lg">Made with <i class="fa fa-heart"></i> by Gogula Rajaprabhu</div>
 
                 <div class="col-md-12">

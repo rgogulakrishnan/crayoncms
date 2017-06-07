@@ -26,10 +26,14 @@ Manage individual blocks.
     // Extra (optional) plugin metadata
 	def crayonMeta = [
 		addonType: "plugin",
-		roles: ["ROLE_CRAYONCMS_BLOCK_CREATE": "Create a block",
+		roles: [
+			"Block": [
+				"ROLE_CRAYONCMS_BLOCK_CREATE": "Create a block",
                 "ROLE_CRAYONCMS_BLOCK_EDIT": "Edit a block",
                 "ROLE_CRAYONCMS_BLOCK_VIEW": "View blocks",
-                "ROLE_CRAYONCMS_BLOCK_DELETE": "Delete a block"]
+                "ROLE_CRAYONCMS_BLOCK_DELETE": "Delete a block"
+			]
+		]
 	]
 
     // License: one of 'APACHE', 'GPL2', 'GPL3'

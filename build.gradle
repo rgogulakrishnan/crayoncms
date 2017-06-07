@@ -12,7 +12,7 @@ buildscript {
 
 ext {
     grailsApps = ['crayon-cms']
-    grailsPlugins = ['crayon-block', 'crayon-menu', 'crayon-page', 'crayon-theme', 'crayon-user', 'crayon-core']
+    grailsPlugins = ['crayon-block', 'crayon-menu', 'crayon-core']
 }
 
 subprojects { Project project -> 

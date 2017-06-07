@@ -1,4 +1,4 @@
-package com.crayoncms.core.enums
+package com.crayoncms.enums
 
 enum SettingType {
 

@@ -11,6 +11,7 @@
 //= require crayoncms/codemirror-5.20.0
 //= require crayoncms/codemirror-xml-5.20.0
 //= require crayoncms/summernote.min
+//= require crayoncms/cropper/imagecrop.min
 //= require crayoncms/jquery.mjs.nestedSortable
 //= require crayoncms/jquery.ui.touch-punch-0.2.3.min
 //= require_tree .
@@ -102,6 +103,53 @@ if (typeof jQuery !== 'undefined') {
 					}
 				});
 			}
+    	});
+
+        var img_c;
+    	$("#profileFile").change(function() {
+            console.log(this.files.length);
+    	    if(this.files && this.files[0]) {
+
+    	        var reader = new FileReader();
+
+
+                var img_d = new ImageCropper('.profilePicWrapper', "img.jpg");
+                img_d.destroy();
+
+    	        reader.onload = function(e) {
+
+    	            img_c = new ImageCropper('.profilePicWrapper', e.target.result, {
+    	                fixed_size: true,
+    	                min_crop_width: 200,
+    	                min_crop_height: 200
+    	            });
+    	        }
+
+    	        reader.readAsDataURL(this.files[0]);
+    	    }
+
+    	});
+
+    	$('#uploadProfilePic').click(function() {
+    	    console.log("Cropped imaged");
+    	    var img_b64_str = img_c.crop("image/jpeg", 1);
+    	    console.log(img_b64_str);
+    	    var version = $("#version").val();
+    	    var id = $("#id").val();
+    	    $.ajax({
+                data: { 'id': id, 'version': version, 'profilePicture': img_b64_str },
+                dataType: 'json',
+                type: 'POST',
+                url: "/admin/user/changeProfilePic",
+                success: function(data, text) {
+                    console.log(data.retMess);
+                    console.log(text);
+                    $("#updateProfilePic").modal("hide");
+                },
+                error: function(xhr, err, errThrown) {
+                    console.log(errThrown);
+                }
+            });
     	});
     	      
   })(jQuery);

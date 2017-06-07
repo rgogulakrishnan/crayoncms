@@ -1,14 +1,15 @@
 package com.crayoncms
 
 import com.crayoncms.block.Block
-import com.crayoncms.core.Setting
+import com.crayoncms.Setting
 import com.crayoncms.theme.Layout
 import com.crayoncms.menu.Menu
 import com.crayoncms.menu.MenuGroup
 import com.crayoncms.page.Page
 import com.crayoncms.menu.enums.MenuType
-import com.crayoncms.page.enums.PageStatus
+import com.crayoncms.enums.PageStatus
 import com.crayoncms.block.enums.BlockType
+import com.crayoncms.enums.SettingType
 import com.crayoncms.user.Role
 import com.crayoncms.user.RoleGroup
 import com.crayoncms.user.RoleGroupRole
@@ -28,21 +29,21 @@ class BootStrap {
 
             // These are default settings for the website.
             new Setting(name: "Installation status", value: "Fresh", options: "['Fresh', 'Installed']",
-                type: com.crayoncms.core.enums.SettingType.ADMIN_FIELD, section: "General", mandatory: false).save()
+                type: SettingType.ADMIN_FIELD, section: "General", mandatory: false).save()
 
             new Setting(name: "Site Name", description: "The name of the website and title to be used around the site",
-                    value: "CrayonCMS Site", type: com.crayoncms.core.enums.SettingType.TEXT, section: "General", mandatory: true).save()
+                    value: "CrayonCMS Site", type: SettingType.TEXT, section: "General", mandatory: true).save()
 
             new Setting(name: "Site Status", value: "Open", options: "['Open', 'Closed']",
-                    type: com.crayoncms.core.enums.SettingType.RADIO, section: "General", mandatory: true).save()
+                    type: SettingType.RADIO, section: "General", mandatory: true).save()
 
             new Setting(name: "Maintenance Message", value: "Sorry, this website is currently unavailable.",
-                    type: com.crayoncms.core.enums.SettingType.TEXT_AREA, section: "General", mandatory: true).save()
+                    type: SettingType.TEXT_AREA, section: "General", mandatory: true).save()
 
-            new Setting(name: "Time Zone", value: "Asia/Calcutta", type: com.crayoncms.core.enums.SettingType.TIME_ZONE_SELECT,
+            new Setting(name: "Time Zone", value: "Asia/Calcutta", type: SettingType.TIME_ZONE_SELECT,
                     section: "General", mandatory: true).save()
 
-            new Setting(name: "Date format", value: "dd MMM, yyyy hh:mm a", type: com.crayoncms.core.enums.SettingType.TEXT,
+            new Setting(name: "Date format", value: "dd MMM, yyyy hh:mm a", type: SettingType.TEXT,
                     section: "General", mandatory: true).save()
 
             // This is one time setup on boot. Set again on update() in SettingController
@@ -65,13 +66,15 @@ class BootStrap {
         pluginManager.allPlugins.each { plugin ->
             def roles = plugin.getProperties()?.crayonMeta?.roles
             if(roles) {
-                roles.each { key, value ->
-                    Role.withTransaction { roleStatus ->
-                        def role = new Role("authority": key, "authorityName": value, "plugin": plugin.getProperties()?.title).save()
-                        RoleGroupRole.withTransaction { roleGroupRoleStatus ->
-                            RoleGroupRole.create RoleGroup.findByName("Administrator"), role
-                        }
-                    }
+                roles.each { groupName, rolesList ->
+					rolesList.each { key, value ->
+						Role.withTransaction { roleStatus ->
+							def role = new Role("authority": key, "authorityName": value, "groupName": groupName, "plugin": plugin.getProperties()?.title).save()
+							RoleGroupRole.withTransaction { roleGroupRoleStatus ->
+								RoleGroupRole.create RoleGroup.findByName("Administrator"), role
+							}
+						}
+					}
                 }
             }
         }

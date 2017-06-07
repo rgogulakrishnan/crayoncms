@@ -11,6 +11,7 @@
 *= require crayoncms/font-awesome.min-4.6.3
 *= require crayoncms/codemirror-5.20.0
 *= require crayoncms/summernote
+*= require crayoncms/cropper/imagecrop.min
 *= require crayoncms/admin
 *= require crayoncms/mobile
 *= require_self
@@ -403,4 +404,9 @@ input.fa.fa-trash-o {
     position:fixed;
     top:50%;
     left:50%;
+}
+
+.admin_logo_small {
+	width: 70px;
+	height: 70px;
 }

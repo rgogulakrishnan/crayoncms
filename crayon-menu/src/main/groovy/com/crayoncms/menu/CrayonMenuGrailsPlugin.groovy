@@ -26,7 +26,12 @@ Manage menu and groups
     // Extra (optional) plugin metadata
 	def crayonMeta = [
 		addonType: "plugin",
-		roles: ["ROLE_MANAGE_MENU": "Manage menu", "ROLE_MANAGE_MENUGROUPS": "Manage menu groups"]
+		roles: [
+			"Menu": [
+				"ROLE_MANAGE_MENU": "Manage menu", 
+				"ROLE_MANAGE_MENUGROUPS": "Manage menu groups"
+			]
+		]
 	]
 
     // License: one of 'APACHE', 'GPL2', 'GPL3'

@@ -12,7 +12,7 @@ class CrayonCoreGrailsPlugin extends Plugin {
     ]
 
     // TODO Fill in these fields
-    def title = "Core" // Headline display name of the plugin
+    def title = "Crayon Core" // Headline display name of the plugin
     def author = "CrayonCMS Team"
     def authorEmail = ""
     def description = '''\
@@ -27,8 +27,25 @@ Core features for the CrayonCMS
 	def crayonMeta = [
             addonType: "plugin",
             roles: [
-                    "ROLE_CRAYONCMS_MANAGE_PLUGINS": "Manage plugins",
-                    "ROLE_CRAYONCMS_MANAGE_SETTINGS": "Manage site settings"
+					"Administration": [
+						"ROLE_CRAYONCMS_MANAGE_PLUGINS": "Manage plugins",
+						"ROLE_CRAYONCMS_MANAGE_SETTINGS": "Manage site settings",
+					],
+					"User": [
+						"ROLE_CRAYONCMS_USER_UPDATE": "Manage users",
+						"ROLE_CRAYONCMS_USER_VIEW": "View users",
+						"ROLE_CRAYONCMS_USER_MANAGE_ROLEGROUPS": "Manage groups and roles",
+						"ROLE_CRAYONCMS_USER_UPDATE_PROFILE": "Update own profile"
+					],
+					"Theme": [
+						"ROLE_CRAYONCMS_LAYOUT_MANAGE": "Manage layouts",
+						"ROLE_CRAYONCMS_LAYOUT_VIEW": "View layouts"
+					],
+					"Page": [
+						"ROLE_CRAYONCMS_PAGE_CREATE": "Create a page",
+						"ROLE_CRAYONCMS_PAGE_EDIT": "Edit a page",
+						"ROLE_CRAYONCMS_PAGE_DELETE": "Delete a page"					
+					]
             ]
 	]
 

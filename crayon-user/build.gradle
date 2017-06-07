@@ -1,4 +1,0 @@
-dependencies {
-    provided project(":crayon-core")
-    compile 'org.imgscalr:imgscalr-lib:4.2'
-}
