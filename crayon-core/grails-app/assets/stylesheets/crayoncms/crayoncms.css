@@ -28,6 +28,30 @@ html, body {
     -webkit-overflow-scrolling: touch;
 }
 
+@font-face {
+    font-family: 'Raleway-Medium';
+    src: url("raleway/raleway-medium.eot"), /* IE9 Compat Modes */
+         url("raleway/raleway-medium.eot") format('embeded-opentype'), /* IE6-IE8 */
+         url("raleway/raleway-medium.woff") format("woff"),
+         url("raleway/raleway-medium.ttf") format("truetype"); /* Safari, Android, iOS */
+}
+
+@font-face {
+    font-family: 'Raleway-Light';
+    src: url("raleway/raleway-light.eot"), /* IE9 Compat Modes */
+         url("raleway/raleway-light.eot") format('embeded-opentype'), /* IE6-IE8 */
+         url("raleway/raleway-light.woff") format("woff"),
+         url("raleway/raleway-light.ttf") format("truetype"); /* Safari, Android, iOS */
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url("raleway/raleway-regular.eot"), /* IE9 Compat Modes */
+         url("raleway/raleway-regular.eot") format('embeded-opentype'), /* IE6-IE8 */
+         url("raleway/raleway-regular.woff") format("woff"),
+         url("raleway/raleway-regular.ttf") format("truetype"); /* Safari, Android, iOS */
+}
+
 /* BASE LAYOUT */
 html * {
     margin: 0;

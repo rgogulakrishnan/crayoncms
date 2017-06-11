@@ -38,6 +38,7 @@ subprojects { Project project ->
         if ( isGrailsPlugin ) {
             apply plugin:"org.grails.grails-plugin"
             apply plugin:"org.grails.grails-plugin-publish"
+			apply plugin:"org.grails.grails-gsp"
         }
 
         repositories {

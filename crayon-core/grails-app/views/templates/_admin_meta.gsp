@@ -5,5 +5,4 @@
 </title>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <asset:link rel="shortcut icon" href="crayoncms/favicon.ico" type="image/x-icon"/>
-<link href="https://fonts.googleapis.com/css?family=Raleway|Open+Sans" rel="stylesheet">
 <asset:stylesheet src="crayoncms/crayoncms.css"/>
