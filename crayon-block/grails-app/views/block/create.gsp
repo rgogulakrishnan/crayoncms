@@ -27,7 +27,7 @@
                 <f:field bean="block" property="type" />
                 <div class="form-group">
                     <label class="control-label" for="content">Content</label>
-                    <textarea class="form-control" name="content" id="${(block.type == com.crayoncms.block.enums.BlockType.CODE) ? 'code' : 'content'}">${block.content}</textarea>
+                    <textarea class="form-control" name="content" id="${(block.type == com.crayoncms.enums.BlockType.CODE) ? 'code' : 'content'}">${block.content}</textarea>
                 </div>
                 <crayoncms:adminSaveButtons action="create" />
             </g:form>
